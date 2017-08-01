@@ -39,16 +39,19 @@ describe "User visits a job page" do
     job2 = Job.create(title: "Dishwasher", level_of_interest: -50, city: "Uranus", salary: 5000, company_id: company.id)
     job3 = Job.create(title: "Electrician", level_of_interest: 70, city: "Saturn", salary: 45000, company_id: company2.id)
     job4 = Job.create(title: "Laborer", level_of_interest: 10, city: "Pluto", salary: 15000, company_id: company2.id)
-
     tag = Tag.create(name: "Not sure")
+    tag2 = Tag.create(name: "No thanks")
     job.tags << tag
-    job2.tags << tag
+    job.tags << tag2
+    job3.tags << tag
+    job2.tags << tag2
+    job4.tags << tag2
 
     visit company_job_path(company.id, job.id)
 
     expect(page).to have_content(company.name)
     expect(page).to have_content(job.title)
     expect(page).to have_content(job.city)
-    expect(page).to have_content("Not sure - 2 (40000), No thanks - 2 (10000)")
+    expect(page).to have_content("Not sure - 2 (40000), No thanks - 3 (18333)")
   end
 end
