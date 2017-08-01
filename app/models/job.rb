@@ -4,8 +4,12 @@ class Job < ActiveRecord::Base
   has_many :jobs_tag
   has_many :tags, through: :jobs_tag
 
-  def job_with_tag(tag)
-    tag.jobs.count
-  end
+  # def job_with_tag(tag)
+  #   Job.where("tags.name = #{tag}")  #this was in progress during refactor
+  # end
+
+  # def average_salary(tag)
+  #
+  # end
 
 end

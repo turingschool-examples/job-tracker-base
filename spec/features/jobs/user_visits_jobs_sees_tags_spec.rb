@@ -20,7 +20,7 @@ RSpec.describe "user visits job page" do
     job1 = company1.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
     tag1 = job1.tags.create(name: "Software")
     company2 = Company.create!(name: "WacDonalds")
-    job2 = company1.jobs.create!(title: "Developer"sinc, level_of_interest: 70, city: "FoCo")
+    job2 = company1.jobs.create!(title: "Developer", level_of_interest: 70, city: "FoCo")
     tag2 = job1.tags.create(name: "Software")
 
     visit company_job_path(company1, job1)
@@ -34,12 +34,12 @@ RSpec.describe "user visits job page" do
     job1 = company1.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 100000)
     tag1 = job1.tags.create(name: "Software")
     company2 = Company.create!(name: "WacDonalds")
-    job2 = company1.jobs.create!(title: "Developer"sinc, level_of_interest: 70, city: "FoCo", salary: 80000)
+    job2 = company1.jobs.create!(title: "Developer", level_of_interest: 70, city: "FoCo", salary: 80000)
     tag2 = job1.tags.create(name: "Software")
 
 
     visit company_job_path(company1, job1)
-
+    save_and_open_page
     expect(page).to have_content("Tags: #{tag1.name}, 2 (90000)")
   end
 end
