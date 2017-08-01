@@ -4,6 +4,7 @@ require 'rails_helper'
       tag = Tag.create(title: "Computer")
       company = Company.create(name: "Xcel Energy")
       job = Job.create(title: 'Software Engineer', level_of_interest: 100, city: "Denver", company_id: company.id)
+      job_tags = JobsTag.create(tag_id: tag.id, job_id: job.id)
 
       visit company_job_path(company, job)
       save_and_open_page
