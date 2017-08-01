@@ -7,4 +7,8 @@ class Tag < ApplicationRecord
   def avg_salary
     self.jobs.average(:salary).round(2)
   end
+
+  def job_count
+    JobTag.tag_count(self)
+  end
 end
