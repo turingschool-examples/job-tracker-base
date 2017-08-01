@@ -10,4 +10,10 @@ Level of Interest: <%= @job.level_of_interest %>
 City: <%= @job.city %>
 <br>
 
+<% unless @tags.nil? %>
+  <%= @tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+<% end %>
+
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
