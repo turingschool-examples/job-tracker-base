@@ -37,12 +37,13 @@ RSpec.feature "When a user views a specific job page" do
   end
 
   scenario "they see the average salary of a tag's jobs" do
-    visit company_job_path(@company, @job)
     @job2.tags << [@tag1]
+
+    visit company_job_path(@company, @job)
 
     expect(page).to have_content(@tag1.salaries)
     expect(page).to have_content(@tag2.salaries)
     expect(@tag1.salaries).to eq(512500)
-    expect(@tag2.salaries).to eq(1)
+    expect(@tag2.salaries).to eq(25000)
   end
 end
