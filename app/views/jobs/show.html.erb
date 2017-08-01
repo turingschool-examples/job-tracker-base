@@ -11,8 +11,8 @@ City: <%= @job.city %>
 <br>
 
 <% unless @tags.nil? %>
-  <%= @tags.each do |tag| %>
-    <%= tag.name %>
+  <% @tags.each do |tag| %>
+    <p><%= tag.name %>, <%= tag.jobs.count %></p>
   <% end %>
 <% end %>
 
