@@ -11,8 +11,8 @@ RSpec.describe "User visits individual job page" do
     visit company_job_path(company, job)
 
     expect(current_path).to eq company_job_path(company, job)
-    expect(page).to have_content item1.title
-    expect(page).to have_content item2.title
-    expect(page).to have_content item3.title
+    expect(page).to have_content tag1.title
+    expect(page).to have_content tag2.title
+    expect(page).to have_content tag3.title
   end
 end
