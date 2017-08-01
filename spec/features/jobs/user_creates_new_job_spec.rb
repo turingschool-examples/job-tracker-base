@@ -9,6 +9,7 @@ describe "User creates a new job" do
     fill_in "job[description]", with: "So fun!"
     fill_in "job[level_of_interest]", with: 80
     fill_in "job[city]", with: "Denver"
+    fill_in "job[salary]", with: "70000"
 
     click_button "Create"
 

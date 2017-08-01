@@ -3,8 +3,10 @@ require 'rails_helper'
 describe "User sees all jobs" do
   scenario "a user sees all the jobs for a specific company" do
     company = Company.create!(name: "ESPN")
-    company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
-    company.jobs.create!(title: "QA Analyst", level_of_interest: 70, city: "New York City")
+    company.jobs.create!(title: "Developer", level_of_interest: 70,
+                         city: "Denver", salary: 70000)
+    company.jobs.create!(title: "QA Analyst", level_of_interest: 70,
+                         city: "New York City", salary: 50000)
 
     visit company_path(company)
 

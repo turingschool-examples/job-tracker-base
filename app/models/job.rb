@@ -1,4 +1,5 @@
 class Job < ActiveRecord::Base
-  validates :title, :level_of_interest, :city, presence: true
+  validates :title, :level_of_interest, :city, :salary, presence: true
   belongs_to :company
+  has_and_belongs_to_many :tags
 end
