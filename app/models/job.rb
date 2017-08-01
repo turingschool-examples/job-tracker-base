@@ -4,9 +4,9 @@ class Job < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
-  def all_tags(title)
-    self.tags = title.split(", ").map do |title|
-      Tag.where(title: self.strip).find_or_create_by!
+  def all_tags=(titles)
+    self.tags = titles.split(", ").map do |title|
+      Tag.where(title: title.strip).first_or_create!
     end
   end
 

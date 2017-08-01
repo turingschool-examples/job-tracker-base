@@ -13,4 +13,9 @@
   <br>
 
   Company: <%= link_to @job.company.name, company_path(@job.company) %>
+
+  <% @job.taggings.each do |tag| %>
+    <%= tag.tag.title  %>
+    <% end  %>
+
 </div>

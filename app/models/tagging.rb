@@ -1,5 +1,5 @@
-class Tagging < ApplicationRecord
-  belongs_to :jobs
-  belongs_to :tags
+class Tagging < ActiveRecord::Base
+  belongs_to :job
+  belongs_to :tag
 
 end

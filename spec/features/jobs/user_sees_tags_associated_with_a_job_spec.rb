@@ -7,9 +7,11 @@ describe "User sees a all tags associated with job" do
                               level_of_interest: 70,
                               city: "Denver")
 
-    tag1 = tag.create(title: "Admin")
-    tag2 = tag.create(title: "Education")
-    tag3 = tag.create(title: "Business")
+    tag1 = Tag.create(title: "Admin")
+    tag2 = Tag.create(title: "Education")
+    tag3 = Tag.create(title: "Business")
+
+    Tagging.create(jobs_id: job.id, tags_id: tag1.id)
 
     visit company_job_path(company, job)
 
