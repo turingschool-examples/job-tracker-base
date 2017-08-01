@@ -15,6 +15,6 @@ Company: <%= link_to @job.company.name, company_path(@job.company) %>
 Tags:
 <ul>
   <% @job.tags.each do |tag| %>
-    <li> <%= "#{tag.name} - #{tag.jobs.count} (#{tag.average_salary})" %> </li>
+    <li> <%= "#{tag.name} - #{tag.job_count} (#{tag.average_salary})" %> </li>
   <% end %>
 </ul>
