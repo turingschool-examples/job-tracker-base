@@ -19,7 +19,7 @@ RSpec.feature "user visits individual job page" do
     job3.tags << tag1
     job3.tags << tag2
     visit(company_job_path(company, job))
-    expect(page).to have_content("tags: Industrial (3)")
-    expect(page).to have_content("Mechanics (2)")
+    expect(page).to have_content("tags: Industrial - 3")
+    expect(page).to have_content("Mechanics - 2")
   end
 end

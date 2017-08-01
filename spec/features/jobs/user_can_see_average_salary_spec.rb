@@ -18,7 +18,7 @@ RSpec.feature "user visits job show page" do
     expect(tag2.average_salary).to eq(50025)
 
     visit(company_job_path(company, job))
-    expect(page).to have_content("[$50000.00]")
-    expect(page).to have_content("[$50025.00]")
+    expect(page).to have_content("($50000.00)")
+    expect(page).to have_content("($50025.00)")
   end
 end
