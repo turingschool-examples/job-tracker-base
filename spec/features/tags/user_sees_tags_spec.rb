@@ -31,8 +31,9 @@ require 'rails_helper'
       job2 = Job.create(title: "Systems Architect", level_of_interest: 74, city: "Miami", salary: 120000, company_id: company.id)
       job.jobs_tags.create(tag: tag)
       job2.jobs_tags.create(tag: tag)
-      # When I visit a specific job page,
-      visit
-      # I also see an average salary for all jobs within each specific tag listed.
+
+      visit company_job_path(company, job)
+
+      expect(page).to have_content("(105000)")
     end
   end
