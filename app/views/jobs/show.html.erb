@@ -11,3 +11,19 @@ City: <%= @job.city %>
 <br>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
+
+<p>Add a Tag</p>
+
+<%= form_for [@job.company, @job] do |f| %>
+  <%= f.label :tags %>
+  <%= f.collection_select(:tag_ids, Tag.all, :id, :name) %>
+
+  <%= f.submit 'Add Tag' %>
+<% end %>
+
+<p>Tags:</p>
+<ul>
+  <% @job.tags.each do |tag| %>
+    <li><%= "#{tag.name} - #{tag.total_jobs} (#{tag.average_job_salary})"%> </li>
+  <% end %>
+</ul>
