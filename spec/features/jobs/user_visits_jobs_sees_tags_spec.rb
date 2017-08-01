@@ -6,12 +6,11 @@ RSpec.describe "user visits job page" do
 
     company = Company.create!(name: "ESPN")
     job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
-
-    tags = job.tags.all
+    tag = job.tags.create(name: "Software")
 
     visit company_job_path(company, job)
 
-    expect(page).to have_content("Tags: #{tags.first.name}")
+    expect(page).to have_content("Tags: #{tag.name}")
 
   end
   scenario "user sees count of jobs with  specific tag listed" do
