@@ -7,6 +7,12 @@ RSpec.describe Tag, type: :model do
         tag = Tag.new(name: nil)
         expect(tag).to be_invalid
       end
+
+      it "is invalid with duplicate name" do
+        tag1 = Tag.create!(name: "tag name")
+        tag2 = Tag.new(name: "tag name")
+        expect(tag2).to be_invalid
+      end
     end
   end
 
