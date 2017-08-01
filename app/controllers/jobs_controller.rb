@@ -22,7 +22,6 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
-    byebug
   end
 
   def edit
