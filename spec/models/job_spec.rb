@@ -5,6 +5,7 @@ describe Job do
     it {is_expected.to validate_presence_of(:title)}
     it {is_expected.to validate_presence_of(:level_of_interest)}
     it {is_expected.to validate_presence_of(:city)}
+    it {is_expected.to belong_to(:company)}
     it {is_expected.to have_many(:job_tags)}
     it {is_expected.to have_many(:tags).through(:job_tags)}
   end
