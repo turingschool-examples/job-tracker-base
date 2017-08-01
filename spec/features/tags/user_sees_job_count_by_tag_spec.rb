@@ -1,5 +1,5 @@
 describe "User sees a specific job" do
-  scenario "and its tags" do
+  scenario "and the job count for each of its tags" do
     # As a user,
     company = Company.create!(name: "ESPN")
     job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
