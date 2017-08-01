@@ -12,7 +12,9 @@ City: <%= @job.city %>
 
 <% unless @tags.nil? %>
   <% @tags.each do |tag| %>
-    <p><%= tag.name %>, <%= tag.jobs.count %></p>
+    <p><%= tag.name %></p>
+    <p># of Jobs: <%= tag.jobs.count %></p>
+    <p>Average Salary: <%= tag.jobs.average(:salary) %></p>
   <% end %>
 <% end %>
 

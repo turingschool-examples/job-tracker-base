@@ -19,8 +19,10 @@ describe "User sees a specific job" do
 
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
-    expect(page).to have_content("Tech, 2")
-    expect(page).to have_content("Engineering, 1")
+    expect(page).to have_content("Tech")
+    expect(page).to have_content("# of Jobs: 2")
+    expect(page).to have_content("Engineering")
+    expect(page).to have_content("# of Jobs: 1")
   end
 
   scenario "a user doesn't sees tags with no jobs" do
@@ -38,16 +40,19 @@ describe "User sees a specific job" do
 
     expect(page).to have_content("ESPN")
     expect(page).to have_content("President")
-    expect(page).to have_content("Tech, 2")
-    expect(page).to have_content("Engineering, 2")
-    expect(page).to have_content("Management, 1")
+    expect(page).to have_content("Tech")
+    expect(page).to have_content("# of Jobs: 2")
+    expect(page).to have_content("Engineering")
+    expect(page).to have_content("# of Jobs: 2")
+    expect(page).to have_content("Management")
+    expect(page).to have_content("# of Jobs: 1")
 
     visit company_job_path(company, job1)
 
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Teacher")
     expect(page).to_not have_content("Tech, 2")
-    expect(page).to_not have_content("Engineering, 2")
-    expect(page).to_not have_content("Management, 1")
+    expect(page).to_not have_content("Engineering")
+    expect(page).to_not have_content("Management")
   end
 end
