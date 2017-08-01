@@ -22,6 +22,8 @@ RSpec.feature 'User visits a job show page' do
 
     visit company_job_path(company, job)
 
+    save_and_open_page
+
     expect(page).to have_content tag1.name
     expect(page).to have_content tag2.name
     expect(page).to have_content tag3.name

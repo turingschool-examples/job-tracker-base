@@ -12,7 +12,9 @@ City: <%= @job.city %>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
-This job is tagged with:
-<% @job.tags.each do |tag| %>
-  <%= tag.name %>
-<% end %>
+<p>
+  Tags:
+  <% @job.tags.each do |tag| %>
+    <%= tag.name %>,
+  <% end %>
+</p>
