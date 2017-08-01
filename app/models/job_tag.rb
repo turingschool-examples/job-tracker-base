@@ -1,0 +1,2 @@
+class JobTag < ApplicationRecord
+end
