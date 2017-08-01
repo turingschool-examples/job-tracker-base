@@ -49,7 +49,7 @@ RSpec.feature 'User visits a job show page' do
     visit company_job_path(company, job)
 
     expect(page).to have_content "#{tag1.name} - 2 (24500)"
-    expect(page).to have_content "#{tag2.name} - 1 (23666.67)"
+    expect(page).to have_content "#{tag2.name} - 1 (23666)"
     expect(page).to have_content "#{tag3.name} - 1 (24000)"
   end
 end

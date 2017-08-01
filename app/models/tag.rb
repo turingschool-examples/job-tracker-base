@@ -9,6 +9,6 @@ class Tag < ApplicationRecord
   end
 
   def average_job_salary
-    jobs.average(:salary).round(2)
+    jobs.average(:salary).to_i
   end
 end

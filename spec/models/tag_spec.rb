@@ -40,7 +40,7 @@ RSpec.describe Tag, type: :model do
       it "should return the average salary for all jobs associated with tag" do
         tag2.jobs << [job, job2, job3]
 
-        expect(tag2.average_job_salary).to eq 23666.67
+        expect(tag2.average_job_salary).to eq 23666
       end
     end
   end
