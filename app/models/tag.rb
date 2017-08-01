@@ -4,6 +4,6 @@ class Tag < ActiveRecord::Base
 
 
   def average_salary
-    jobs.pluck(:salary).sum/jobs.count
+    jobs.average(:salary).round
   end
 end
