@@ -1,5 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Tag, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Tag,"associations", type: :model do
+  it { should have_many(:job_tags) }
+  it { should have_many(:jobs).through(:job_tags) }
 end

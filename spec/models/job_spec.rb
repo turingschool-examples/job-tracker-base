@@ -33,4 +33,9 @@ describe Job do
       expect(job).to respond_to(:company)
     end
   end
+
+  describe "associations" do
+    it { should have_many(:job_tags) }
+    it { should have_many(:tags).through(:job_tags) }
+  end
 end
