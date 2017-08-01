@@ -11,3 +11,10 @@ City: <%= @job.city %>
 <br>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
+<br>
+Tags: <% @job.tags.each do |tag|  %>
+      <%= tag.name  %>
+      <% end %>
+
+      <%= @job.tags.count %>
+      <%= @tags.all %>   <!--- this was going out in the refactor--->
