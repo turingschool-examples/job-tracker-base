@@ -11,7 +11,6 @@ RSpec.feature "user visits individual job page" do
     job.tags << tag3
 
     visit(company_job_path(company, job))
-    save_and_open_page
     expect(page).to have_content(tag1.name)
     expect(page).to have_content(tag3.name)
     expect(page).to_not have_content(tag2.name)
