@@ -10,7 +10,6 @@ RSpec.describe "User visits individual job page" do
     tag3 = job.tags.create!(title: "Remote")
     visit company_job_path(company, job)
 
-    expect(current_path).to eq company_job_path(company, job)
     expect(page).to have_content tag1.title
     expect(page).to have_content tag2.title
     expect(page).to have_content tag3.title
