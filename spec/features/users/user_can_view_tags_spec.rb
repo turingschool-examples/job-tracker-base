@@ -12,5 +12,6 @@ RSpec.feature "When a user views a specific job page" do
 
     expect(page).to have_content(tag1.name)
     expect(page).to have_content(tag2.name)
+    
   end
 end
