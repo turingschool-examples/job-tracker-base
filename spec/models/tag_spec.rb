@@ -8,9 +8,9 @@ RSpec.describe Tag, type: :model do
       tag_one = job.tags.create(name: "New")
       tag_two = job.tags.create(name: "Old")
       job_two = job_two.tags << tag_two
-      expected = Tag.average_salary(job)
+      expecter = tag_two.avg_salary
 
-      expect(expected).to eq 1800
+      expect(expecter).to eq 1800
     end
   end
 end

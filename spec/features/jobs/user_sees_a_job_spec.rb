@@ -16,7 +16,6 @@ describe "User sees a specific job" do
     expect(page).to have_content("70")
     expect(page).to have_content tag_one.name
     expect(page).to have_content tag_two.name
-    save_and_open_page
     expect(page).to have_content 1800
   end
 end

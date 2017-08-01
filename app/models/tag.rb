@@ -4,11 +4,7 @@ class Tag < ApplicationRecord
   has_many :job_tags
   has_many :jobs, through: :job_tags
 
-  def self.average_salary(job)
-    self.joins(:jobs).where(id: job).average(:salary)
-  end
-
-  def self.avg_salaray
-
+  def avg_salary
+    self.jobs.average(:salary).round(2)
   end
 end
