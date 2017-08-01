@@ -8,8 +8,10 @@ describe "User sees a specific job" do
     # I also see a count of how many jobs have each specific tag listed.
 
     company = Company.create!(name: "ESPN")
-    job     = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
-    job1    = company.jobs.create!(title: "Teacher", level_of_interest: 50, city: "Denver")
+    job     = company.jobs.create!(title: "Developer", level_of_interest: 70,
+                                   city: "Denver", salary: 70000)
+    job1    = company.jobs.create!(title: "Teacher", level_of_interest: 50,
+                                   city: "Denver", salary: 50000)
     tag     = job.tags.create!(name: "Tech")
     tag1    = job.tags.create!(name: "Engineering")
 
@@ -27,9 +29,12 @@ describe "User sees a specific job" do
 
   scenario "a user doesn't sees tags with no jobs" do
     company = Company.create!(name: "ESPN")
-    job     = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
-    job1    = company.jobs.create!(title: "Teacher", level_of_interest: 10, city: "Denver")
-    job2    = company.jobs.create!(title: "President", level_of_interest: 100, city: "Denver")
+    job     = company.jobs.create!(title: "Developer", level_of_interest: 70,
+                                   city: "Denver", salary: 70000)
+    job1    = company.jobs.create!(title: "Teacher", level_of_interest: 50,
+                                   city: "Denver", salary: 50000)
+    job2    = company.jobs.create!(title: "President", level_of_interest: 100,
+                                   city: "Denver", salary: 100000)
     tag     = job.tags.create!(name: "Tech")
     tag1    = job.tags.create!(name: "Engineering")
     tag2    = Tag.create!(name: "Management")
@@ -51,7 +56,7 @@ describe "User sees a specific job" do
 
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Teacher")
-    expect(page).to_not have_content("Tech, 2")
+    expect(page).to_not have_content("Tech")
     expect(page).to_not have_content("Engineering")
     expect(page).to_not have_content("Management")
   end
