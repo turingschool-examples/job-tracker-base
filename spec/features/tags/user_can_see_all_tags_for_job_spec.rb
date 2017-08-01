@@ -20,12 +20,12 @@ RSpec.feature 'User visits a job show page' do
 
     job.tags << [tag1, tag2, tag3]
 
-    visit job_path(job)
+    visit company_job_path(company, job)
 
     expect(page).to have_content tag1.name
     expect(page).to have_content tag2.name
     expect(page).to have_content tag3.name
-    expect(page).to_not have_content tag3.name
+    expect(page).to_not have_content tag4.name
   end
 end
 
