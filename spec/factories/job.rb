@@ -16,6 +16,7 @@ FactoryGirl.define do
     level_of_interest
     city
     company
+    salary
 
     factory :job_with_tags do
 
