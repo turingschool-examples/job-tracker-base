@@ -1,13 +1,20 @@
-Title: <%= @job.title %>
+<p>Title: <%= @job.title %></p>
 <br>
 
-Description: <%= @job.description %>
+<p>Description: <%= @job.description %></p>
 <br>
 
-Level of Interest: <%= @job.level_of_interest %>
+<p>Level of Interest: <%= @job.level_of_interest %></p>
 <br>
 
-City: <%= @job.city %>
+<p>City: <%= @job.city %></p>
 <br>
 
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
+<p>Company: <%= link_to @job.company.name, company_path(@job.company) %></p>
+  <ul><h1>Tags:</h1>
+    <% @job.tags.each do |tag| %>
+      <li><%= tag.name %>-</li>
+      <p>Jobs with Tag: <%= tag.job_count %></p>
+      <p>Job Tag Average Salary: $<%= tag.avg_salary %></p>
+    <% end %>
+  </ul>
