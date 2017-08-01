@@ -33,7 +33,6 @@ require 'rails_helper'
       job2.jobs_tags.create(tag: tag)
 
       visit company_job_path(company, job)
-      save_and_open_page
 
       expect(page).to have_content("(105000.0)")
     end
