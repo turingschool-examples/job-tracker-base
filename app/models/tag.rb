@@ -7,10 +7,6 @@ class Tag < ApplicationRecord
   end
 
   def average_salary
-    sum = 0
-    self.jobs.each do |job|
-      sum = ((sum += job[:salary]) / job_count)
-    end
-    sum
+    jobs.average(:salary).to_i
   end
 end

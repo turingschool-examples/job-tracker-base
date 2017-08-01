@@ -13,7 +13,7 @@ RSpec.describe "User visits individual job page" do
     job2.tags << tag2
 
     visit company_job_path(company, job1)
-save_and_open_page
+
     expect(page).to have_content tag1.average_salary
     expect(page).to have_content tag2.average_salary
 
