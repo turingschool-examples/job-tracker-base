@@ -18,7 +18,7 @@ Company: <%= link_to @job.company.name, company_path(@job.company) %>
   <%= f.label :tags %>
   <%= f.collection_select(:tag_ids, Tag.all, :id, :name) %>
 
-  
+  <%= f.submit 'Add Tag' %>
 <% end %>
 
 <p>Tags:</p>

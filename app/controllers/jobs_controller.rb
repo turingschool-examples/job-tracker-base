@@ -29,7 +29,10 @@ class JobsController < ApplicationController
   end
 
   def update
-    # implement on your own!
+    @job = Job.find(params[:id])
+    @job.update(job_params)
+
+    redirect_to company_job_path(@job.company, @job)
   end
 
   def destroy
@@ -39,6 +42,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city, tag_ids: [])
   end
 end
