@@ -9,8 +9,8 @@ describe "User visits job page" do
 
     visit company_job_path(company, job)
 
-    expect(page).to have_content(tag1.name)
-    expect(page).to have_content(tag2.name)
+    expect(page).to have_content(job.tags.first.name)
+    expect(page).to have_content(job.tags.last.name)
     expect(page).to have_content(job.title)
   end
 end
