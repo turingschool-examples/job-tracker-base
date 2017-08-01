@@ -12,6 +12,12 @@ City: <%= @job.city %>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
+<p>Add a Tag</p>
+
+<%= form_for @tag do |f| %>
+  
+<% end %>
+
 <p>Tags:</p>
 <ul>
   <% @job.tags.each do |tag| %>

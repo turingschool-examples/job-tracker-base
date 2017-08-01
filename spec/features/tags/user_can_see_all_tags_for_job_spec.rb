@@ -19,6 +19,16 @@ RSpec.feature 'User visits a job show page' do
   let(:tag3) { Tag.create!(name: 'Only if I have to') }
   let(:tag4) { Tag.create!(name: 'Dream Job') }
 
+  scenario 'and can add a tag to the job' do
+    visit company_job_path(company, job)
+
+    select "tag1.name", from: 'job[tags]'
+    click_on 'Add Tag'
+
+    expect(current_path).to eq company_job_path(company, job)
+    expect(page).to have_content tag1.name
+  end
+
   scenario 'and sees all tags associated with that job' do
     job.tags << [tag1, tag2, tag3]
 
