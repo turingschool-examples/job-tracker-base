@@ -3,7 +3,7 @@
 
 require 'rails_helper'
 RSpec.describe "Tag Count" do
-  "a user sees total tag count" do
+it "a user sees total tag count" do
     company = Company.create(name: "Turing")
     job = company.jobs.create(title: "Ag", description: "work with plants", level_of_interest: 98, city: "Denver", salary: 1)
     #tag1 =job.tags.create(name: "hot job")
@@ -13,7 +13,7 @@ RSpec.describe "Tag Count" do
     #expect(page).to have_content(tag1.name)
     #expect(page).to have_content(tag2.name)
     #expect(page).to have_content("2")
-  end
+  #end
 end
 end
 
