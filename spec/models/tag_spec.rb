@@ -29,6 +29,10 @@ RSpec.describe Tag, type: :model do
       job3.tags << tag1
 
       expect(tag1.average_salary).to eq(50000)
+
+      tag2 = Tag.create(name: "tag2")
+      job.tags << tag2
+      expect(tag2.average_salary).to eq(10050)
     end
   end
 end
