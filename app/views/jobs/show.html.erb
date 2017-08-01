@@ -21,6 +21,7 @@ Company: <%= link_to @job.company.name, company_path(@job.company) %>
     <% @job.tags.each do |tag| %>
        <td><%= tag.name %></td>
        <td><%= Tag.find(tag.id).jobs.count %></td>
+       <td><%= Tag.find(tag.id).jobs.average(:salary) %></td>
     <% end %>
   </tr>
 </table>

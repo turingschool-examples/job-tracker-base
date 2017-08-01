@@ -25,7 +25,7 @@ RSpec.feature "user visits job path" do
     JobTag.create(job_id: job_1.id, tag_id: tag_1.id)
     JobTag.create(job_id: job_1.id, tag_id: tag_2.id)
     JobTag.create(job_id: job_2.id, tag_id: tag_2.id)
-    JobTag.create(job_id: job_3.id, tag_id: tag_2.id)
+    JobTag.create(job_id: job_2.id, tag_id: tag_3.id)
     JobTag.create(job_id: job_3.id, tag_id: tag_3.id)
 
 
@@ -34,6 +34,6 @@ RSpec.feature "user visits job path" do
     expect(page).to have_content("15000")
     expect(page).to have_content("20000")
     expect(page).to have_content("25000")
-    
+
   end
 end
