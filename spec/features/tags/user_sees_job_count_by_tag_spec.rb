@@ -10,8 +10,8 @@ describe "User sees a specific job" do
     # When I visit a specific job page,
     visit company_job_path(company, job)
     # I also see a count of how many jobs have each specific tag listed.
-    expect(page).to have_content("Jobs for Sports: 1")
-    expect(page).to have_content("Jobs for Denver: 1")
-    expect(page).to have_content("Jobs for High Interest: 1")
+    expect(page).to have_content("Sports - 1")
+    expect(page).to have_content("Denver - 1")
+    expect(page).to have_content("High Interest - 1")
   end
 end

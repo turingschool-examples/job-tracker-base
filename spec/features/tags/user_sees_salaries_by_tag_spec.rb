@@ -18,8 +18,8 @@ describe "User sees a specific job" do
     # When I visit a specific job page,
     visit company_job_path(company, job)
     # I also see an average salary for all jobs within each specific tag listed.
-    expect(page).to have_content("Average Salary for Jobs in Sports: 72500")
-    expect(page).to have_content("Average Salary for Jobs in Denver: 72500")
-    expect(page).to have_content("Average Salary for Jobs in High Interest: 75000")
+    expect(page).to have_content("Sports - 2 (72500)")
+    expect(page).to have_content("Denver - 2 (72500)")
+    expect(page).to have_content("High Interest - 2 (75000)")
   end
 end
