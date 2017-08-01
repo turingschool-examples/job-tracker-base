@@ -16,4 +16,11 @@ RSpec.describe Tag, type: :model do
       end
     end
   end
+
+  describe "relationships" do
+    it "has many jobs" do
+      tag = Tag.new(name: "Important!")
+      expect(tag).to respond_to(:jobs)
+    end
+  end
 end
