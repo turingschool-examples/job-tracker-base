@@ -33,4 +33,7 @@ describe Job do
       expect(job).to respond_to(:company)
     end
   end
+
+  it {is_expected.to have_many(:job_tags)}
+  it {is_expected.to have_many(:tags).through(:job_tags)}
 end
