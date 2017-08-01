@@ -27,6 +27,7 @@ RSpec.feature "When a user views a specific job page" do
 
     visit company_job_path(@company, @job)
     expect(page).to have_content(@tag1.count)
+    expect(page).to have_content(@tag2.count)
     expect(@tag1.count).to eq(2)
     expect(@tag2.count).to eq(1)
   end
