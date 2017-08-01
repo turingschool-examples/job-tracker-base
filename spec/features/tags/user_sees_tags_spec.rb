@@ -1,5 +1,6 @@
 require 'rails_helper'
   RSpec.describe "User visits specific job page" do
+
     scenario "sees tags associated with that job" do
       company = Company.create(name: "Xcel Energy")
       job = Job.create(title: 'Software Engineer', level_of_interest: 100, city: "Denver", salary: 90000, company_id: company.id)
@@ -30,9 +31,10 @@ require 'rails_helper'
       job2 = Job.create(title: "Systems Architect", level_of_interest: 74, city: "Miami", salary: 120000, company_id: company.id)
       job.jobs_tags.create(tag: tag)
       job2.jobs_tags.create(tag: tag)
-      byebug
-      visit company_job_path(company, job)
 
-      expect(page).to have_content("(105000)")
+      visit company_job_path(company, job)
+      save_and_open_page
+
+      expect(page).to have_content("(105000.0)")
     end
   end

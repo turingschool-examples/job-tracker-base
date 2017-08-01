@@ -4,7 +4,6 @@ class Tag < ApplicationRecord
   has_many :jobs, through: :jobs_tags
 
   def self.average_salary(tag)
-    a = tag.jobs.average(:salary)
-    byebug
+    tag.jobs.average(:salary).to_f
   end
 end
