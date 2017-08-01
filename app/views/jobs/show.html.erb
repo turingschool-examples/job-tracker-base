@@ -10,9 +10,9 @@ Level of Interest: <%= @job.level_of_interest %>
 City: <%= @job.city %>
 <br>
 
-Tags:
+Tags: |
 <% @job.tags.uniq.each do |tag| %>
-  <span><%= tag.name %> - <%= tag.count %> (<%= tag.salaries %>)</span>
+  <span><%= tag.name %> - <%= tag.count %> (<%= tag.salaries %>)   |</span>
 <% end %></br>
 
 
