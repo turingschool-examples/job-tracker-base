@@ -13,7 +13,7 @@ RSpec.describe "User visits individual job page" do
     job2.tags << tag2
 
     visit company_job_path(company, job1)
-save_and_open_page
+
     expect(tag1.job_count).to eq 1
     expect(tag2.job_count).to eq 2
     expect(tag3.job_count).to eq 1
