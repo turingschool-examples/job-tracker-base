@@ -8,8 +8,8 @@ RSpec.feature "When a user views a specific job page" do
     tag2 = job.tags.create!(name: "Intriguing")
     job.tags << [tag1, tag2]
 
-    visit company_jobs_path(company, job)
-
+    visit company_job_path(company, job)
+    save_and_open_page
     expect(page).to have_content(tag1.name)
     expect(page).to have_content(tag2.name)
 
