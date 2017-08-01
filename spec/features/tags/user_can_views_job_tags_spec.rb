@@ -7,7 +7,7 @@ RSpec.feature "User can view a jobs tags" do
     tag = Tag.create(title: "Set up interview")
     tag2 = Tag.create(title: "Callback")
 
-    visit jobs_path(job)
+    visit company_job_path(company, job)
 
     expect(page).to have_content("Set up interview")
     expect(page).to have_content("Callback")
