@@ -39,7 +39,7 @@ RSpec.describe "user visits job page" do
 
 
     visit company_job_path(company1, job1)
-    save_and_open_page
+    # save_and_open_page
     expect(page).to have_content("Tags: #{tag1.name}, 2 (90000)")
   end
 end
