@@ -19,9 +19,22 @@ describe "User sees a specific job" do
   end
 
   scenario "sees a count of how many jobs have each specific tag listed" do
+      company = Company.create!(name: "ESPN")
+      job_1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+      job_2 = company.jobs.create!(title: "Developer", level_of_interest: 80, city: "Boulder")
+      tag = Tag.create!(name: "Technology")
+
+      job_1.tags << tag
+      job_2.tags << tag
+
+      visit company_job_path(company, job_1)
+
+      expect(tag.job_count).to eq (2)
+
+  scenario "sees a average salary for jobs with tag" do
     company = Company.create!(name: "ESPN")
-    job_1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
-    job_2 = company.jobs.create!(title: "Developer", level_of_interest: 80, city: "Boulder")
+    job_1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 20000)
+    job_2 = company.jobs.create!(title: "Developer", level_of_interest: 80, city: "Boulder", salary: 30000)
     tag = Tag.create!(name: "Technology")
 
     job_1.tags << tag
@@ -29,6 +42,8 @@ describe "User sees a specific job" do
 
     visit company_job_path(company, job_1)
 
-    expect(tag.job_count).to eq (2)
+    expect(tag.job_salary).to eq(25000)
+    expect(page).to have_content("25000")
+  end
   end
 end
