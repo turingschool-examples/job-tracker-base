@@ -14,7 +14,7 @@
   <ul><h1>Tags:</h1>
     <% @job.tags.each do |tag| %>
       <li><%= tag.name %>-</li>
-      <li>Jobs with Tag: <%= JobTag.where(tag_id: tag).count %></li>
-      <li>Job Tag Average Salary: <%=  %></li>
+      <p>Jobs with Tag: <%= JobTag.where(tag_id: tag).count %></p>
+      <p>Job Tag Average Salary: $<%= Job.average_salary(tag.id) %></p>
     <% end %>
   </ul>
