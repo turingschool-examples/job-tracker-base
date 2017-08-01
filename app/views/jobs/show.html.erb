@@ -14,7 +14,10 @@ Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
 <p>Add a Tag</p>
 
-<%= form_for @tag do |f| %>
+<%= form_for [@job.company, @job] do |f| %>
+  <%= f.label :tags %>
+  <%= f.collection_select(:tag_ids, Tag.all, :id, :name) %>
+
   
 <% end %>
 

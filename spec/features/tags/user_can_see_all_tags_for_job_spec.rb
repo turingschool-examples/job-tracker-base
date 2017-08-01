@@ -20,9 +20,10 @@ RSpec.feature 'User visits a job show page' do
   let(:tag4) { Tag.create!(name: 'Dream Job') }
 
   scenario 'and can add a tag to the job' do
+    tag1
     visit company_job_path(company, job)
 
-    select "tag1.name", from: 'job[tags]'
+    select "#{tag1.name}", from: 'job[tag_ids]'
     click_on 'Add Tag'
 
     expect(current_path).to eq company_job_path(company, job)
