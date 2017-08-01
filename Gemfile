@@ -33,11 +33,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '~> 2.13'
+  gem 'selenium-webdriver'
+  gem 'pry'
   gem 'rspec-rails'
-  gem 'capybara'
   gem 'launchy'
+  gem 'database_cleaner'
+  gem 'rails-controller-testing'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
 end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
