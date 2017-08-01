@@ -8,8 +8,7 @@ class Tag < ApplicationRecord
   end
 
   def average_salary
-    JobTag.where(tag: self).find_each(job_ids)
-    binding.byebug
-    Tag.joins(:jobs).where().average("salary").floor
+    jobs = JobTag.where(tag: self).select(:job_id).job_id
+    Job.where(jobs).average("salary").floor
   end
 end
