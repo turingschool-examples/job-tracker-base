@@ -4,7 +4,8 @@ describe "User sees tags" do
   scenario "when viewing a specific job page" do
     company  = Company.create!(name: "Big Blue")
     job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
-    tag = job.tags.create!(name: "Job Tag")
+    tag1 = job.tags.create!(name: "Job Tag")
+    tag2 = job.tags.create!(name: "Work Tag")
 
     visit company_job_path(company, job)
 
