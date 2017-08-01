@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(version: 20170801162000) do
   end
 
   create_table "jobs_tags", id: false, force: :cascade do |t|
-    t.integer "job_id"
-    t.integer "tag_id"
+    t.integer "job_id", null: false
+    t.integer "tag_id", null: false
+    t.index ["job_id"], name: "index_jobs_tags_on_job_id", using: :btree
+    t.index ["tag_id"], name: "index_jobs_tags_on_tag_id", using: :btree
   end
 
   create_table "tags", force: :cascade do |t|
