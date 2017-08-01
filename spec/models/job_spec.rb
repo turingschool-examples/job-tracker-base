@@ -32,5 +32,13 @@ describe Job do
       job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
       expect(job).to respond_to(:company)
     end
+    it "has many taggings" do
+      job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
+      expect(job).to respond_to(:taggings)
+    end
+    it "has many tags" do
+      job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
+      expect(job).to respond_to(:tags)
+    end
   end
 end
