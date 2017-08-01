@@ -1,6 +1,5 @@
 describe "User sees a specific job" do
   scenario "and the average salary for each of its tags" do
-    # As a user,
     company = Company.create!(name: "ESPN")
     company_2 = Company.create!(name: "Sports Authority")
     company_3 = Company.create!(name: "FedEx")
@@ -16,9 +15,8 @@ describe "User sees a specific job" do
     job_2.tags << [tag_1, tag_2, tag_4]
     job_3.tags << [tag_3, tag_4, tag_5]
 
-    # When I visit a specific job page,
     visit company_job_path(company, job)
-    # I also see an average salary for all jobs within each specific tag listed.
+
     expect(page).to have_content("Sports - 2 (72500)")
     expect(page).to have_content("Denver - 2 (72500)")
     expect(page).to have_content("High Interest - 2 (75000)")
