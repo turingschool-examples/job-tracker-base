@@ -5,4 +5,8 @@ class Tag < ApplicationRecord
   def job_count
     self.jobs.count
   end
+
+  def average_salary
+    self.jobs.average("salary")
+  end
 end
