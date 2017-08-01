@@ -12,7 +12,7 @@ City: <%= @job.city %>
 
 Tags:<br>
 <% @job.tags.each do |tag| %>
-  * <%= tag.name %><br>
+  * <%= tag.name %> - <%= tag.count %><br>
 <% end %>
 <br>
 
