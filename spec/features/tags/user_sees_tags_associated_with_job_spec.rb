@@ -5,7 +5,7 @@ describe "User visits a job page" do
     company = Company.create(name: "Pizza Planet")
     job = Job.create(title: "Cook", level_of_interest: 50, city: "Mars", salary: 35000, company_id: company.id)
     tag = Tag.create(name: "Food")
-
+byebug
     visit company_job_path(company.id, job.id)
 
     expect(page).to have_content("Pizza Planet")
