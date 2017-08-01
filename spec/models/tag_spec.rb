@@ -45,9 +45,7 @@ RSpec.describe Tag, type: :model do
       job_2.tags << tag
       job_3.tags << tag
 
-      # tag.jobs << job
-      # tag.jobs << job_2
-      # tag.jobs << job_3
+      # tag.jobs << [job, job_2, job_3]
 
       expect(tag.average_salary).to eq 75000
     end
