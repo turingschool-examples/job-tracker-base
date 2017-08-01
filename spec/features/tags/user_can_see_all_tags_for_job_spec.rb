@@ -3,13 +3,17 @@ require 'rails_helper'
 RSpec.feature 'User visits a job show page' do
   let(:company) { Company.create!(name: 'Cherry Creek Mall') }
   let(:job_attributes) { {title: 'Janitor', description: 'Cleans stuff',
-                          level_of_interest: 4, city: 'Denver', salary: 24000,
-                          company_id: company.id} }
+                           level_of_interest: 4, city: 'Denver', salary: 24000,
+                           company_id: company.id} }
   let(:job2_attributes) { {title: 'Security Guard', description: 'Guards stuff',
-                          level_of_interest: 3, city: 'Denver', salary: 25000,
-                          company_id: company.id} }
+                           level_of_interest: 3, city: 'Denver', salary: 25000,
+                           company_id: company.id} }
+  let(:job3_attributes) { {title: 'Parking Ambassador', description: 'Helps people park',
+                           level_of_interest: 1, city: 'Denver', salary: 22000,
+                           company_id: company.id} }
   let(:job) { Job.create!(job_attributes) }
   let(:job2) { Job.create!(job2_attributes) }
+  let(:job3) { Job.create!(job3_attributes) }
   let(:tag1) { Tag.create!(name: 'Last Resort') }
   let(:tag2) { Tag.create!(name: 'I hope not') }
   let(:tag3) { Tag.create!(name: 'Only if I have to') }
@@ -35,5 +39,17 @@ RSpec.feature 'User visits a job show page' do
     expect(page).to have_content "#{tag1.name} - 2"
     expect(page).to have_content "#{tag2.name} - 1"
     expect(page).to have_content "#{tag3.name} - 1"
+  end
+
+  scenario 'and sees the average salary for each tag' do
+    job.tags << [tag1, tag2, tag3]
+    tag1.jobs << job2
+    tag2.jobs << [job2, job3]
+
+    visit company_job_path(company, job)
+
+    expect(page).to have_content "#{tag1.name} - 2 (24500)"
+    expect(page).to have_content "#{tag2.name} - 1 (23666)"
+    expect(page).to have_content "#{tag3.name} - 1 (24000)"
   end
 end
