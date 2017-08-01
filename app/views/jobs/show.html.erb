@@ -11,10 +11,10 @@ City: <%= @job.city %>
 <br>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
-
+<br>
 Tags:
 <ul>
   <% @job.tags.each do |tag| %>
-    <li> <%= "#{tag.name} - #{tag.job_count} (#{tag.average_salary})" %> </li>
+    <li> <%= "#{tag.name} - #{tag.job_count} (#{number_to_currency(tag.average_salary)})" %> </li>
   <% end %>
 </ul>

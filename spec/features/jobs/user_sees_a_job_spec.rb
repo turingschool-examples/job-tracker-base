@@ -29,8 +29,8 @@ describe "User sees a specific job" do
     visit company_job_path(company, job_1)
 
     expect(page).to have_content("Developer")
-    expect(page).to have_content("engineering - 2 (35)")
-    expect(page).to have_content("tech - 3 (40)")
+    expect(page).to have_content("engineering - 2 ($35.00)")
+    expect(page).to have_content("tech - 3 ($40.00)")
     expect(page).to_not have_content("Human Resources")
   end
 end
