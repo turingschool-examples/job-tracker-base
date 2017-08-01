@@ -17,5 +17,10 @@ describe "User sees a specific job" do
     expect(page).to have_content("Technology")
     expect(page).to have_content("Software")
 
+  scenario "sees a count of how many jobs have each specific tag listed" do
+  end
+
+
+  #  I also .
   end
 end
