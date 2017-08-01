@@ -16,11 +16,19 @@ describe "User sees a specific job" do
     expect(page).to have_content("70")
     expect(page).to have_content("Technology")
     expect(page).to have_content("Software")
-
-  scenario "sees a count of how many jobs have each specific tag listed" do
   end
 
+  scenario "sees a count of how many jobs have each specific tag listed" do
+    company = Company.create!(name: "ESPN")
+    job_1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+    job_2 = company.jobs.create!(title: "Developer", level_of_interest: 80, city: "Boulder")
+    tag = Tag.create!(name: "Technology")
 
-  #  I also .
+    job_1.tags << tag
+    job_2.tags << tag
+
+    visit company_job_path(company, job_1)
+
+    expect(tag.job_count).to eq (2)
   end
 end
