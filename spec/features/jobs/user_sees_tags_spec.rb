@@ -39,7 +39,7 @@ describe "User visits job page" do
     visit company_job_path(@company, @job)
 
     expect(page).to have_content("#{@job.tags.first.name} - 3 (130000)")
-    expect(page).to have_content("#{@job.tags.last.name} - 2 (100000)")
+    expect(page).to have_content("#{@job.tags.last.name} - 2 (150000)")
     expect(page).to have_content(@job.title)
   end
 end

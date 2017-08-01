@@ -8,7 +8,6 @@ class Tag < ApplicationRecord
   end
 
   def average_salary
-    jobs = JobTag.where(tag: self).select(:job_id).job_id
-    Job.where(jobs).average("salary").floor
+    JobTag.joins(:job).where(tag: self).average("salary").floor
   end
 end
