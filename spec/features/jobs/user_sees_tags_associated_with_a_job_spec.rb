@@ -20,9 +20,16 @@ describe "User sees a all tags associated with job" do
     expect(page).to have_content(tag1.title)
     expect(page).to_not have_content(tag2.title)
     expect(page).to have_content(tag3.title)
+
+
+
   end
 end
 
+
+As a user,
+When I visit a specific job page,
+I also see a count of how many jobs have each specific tag listed.
 #
 # As a user,
 # When I visit a specific job page,

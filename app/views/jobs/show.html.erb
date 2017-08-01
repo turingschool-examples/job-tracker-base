@@ -12,10 +12,13 @@
   City: <%= @job.city %>
   <br>
 
-  Company: <%= link_to @job.company.name, company_path(@job.company) %>
+  Company: <%= link_to @job.company.name, company_path(@job.company) %></br>
 
   <% @job.taggings.each do |tag| %>
-    <%= tag.tag.title  %>
+    Tag: <%= tag.tag.title  %>
+    Count: <%= tag.tag.tag_count %>
     <% end  %>
+
+
 
 </div>
