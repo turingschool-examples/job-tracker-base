@@ -11,13 +11,14 @@ describe "User sees a all tags associated with job" do
     tag2 = Tag.create(title: "Education")
     tag3 = Tag.create(title: "Business")
 
-    Tagging.create(jobs_id: job.id, tags_id: tag1.id)
+    Tagging.create(job_id: job.id, tag_id: tag1.id)
+    Tagging.create(job_id: job.id, tag_id: tag3.id)
 
     visit company_job_path(company, job)
 
     expect(page).to have_content("ESPN")
     expect(page).to have_content(tag1.title)
-    expect(page).to_not have_content(tag1.title)
+    expect(page).to_not have_content(tag2.title)
     expect(page).to have_content(tag3.title)
   end
 end
