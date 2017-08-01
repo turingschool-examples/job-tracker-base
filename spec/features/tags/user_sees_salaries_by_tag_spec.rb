@@ -15,11 +15,24 @@ describe "User sees a specific job" do
     job.tags << [tag_1, tag_2, tag_3]
     job_2.tags << [tag_1, tag_2, tag_4]
     job_3.tags << [tag_3, tag_4, tag_5]
+
     # When I visit a specific job page,
     visit company_job_path(company, job)
     # I also see an average salary for all jobs within each specific tag listed.
     expect(page).to have_content("Sports - 2 (72500)")
     expect(page).to have_content("Denver - 2 (72500)")
     expect(page).to have_content("High Interest - 2 (75000)")
+
+    visit company_job_path(company_2, job_2)
+
+    expect(page).to have_content("Sports - 2 (72500)")
+    expect(page).to have_content("Denver - 2 (72500)")
+    expect(page).to have_content("Not Denver - 2 (77500)")
+
+    visit company_job_path(company_3, job_3)
+
+    expect(page).to have_content("High Interest - 2 (75000)")
+    expect(page).to have_content("Not Denver - 2 (77500)")
+    expect(page).to have_content("Probably Easy - 1 (80000)")
   end
 end
