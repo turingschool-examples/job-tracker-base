@@ -47,7 +47,6 @@ RSpec.feature 'User visits a job show page' do
     tag2.jobs << [job2, job3]
 
     visit company_job_path(company, job)
-    save_and_open_page
 
     expect(page).to have_content "#{tag1.name} - 2 (24500)"
     expect(page).to have_content "#{tag2.name} - 3 (23666)"
