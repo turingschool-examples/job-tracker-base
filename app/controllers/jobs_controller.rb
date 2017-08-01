@@ -25,11 +25,20 @@ class JobsController < ApplicationController
   end
 
   def edit
-    # implement on your own!
+    @company = Company.find(params[:company_id])
+    @job = @company.jobs.new(job_params)
   end
 
   def update
-    # implement on your own!
+    @company = Company.find(params[:company_id])
+    @job = @company.jobs.new(job_params)
+
+    if job.update(job_params)
+      flash[:success] = "#{@job.name} updated successfully"
+      redirect_to @job
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -39,6 +48,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city, :all_tags)
   end
 end
