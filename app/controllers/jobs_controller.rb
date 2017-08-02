@@ -1,6 +1,8 @@
 class JobsController < ApplicationController
   def index
     @company = Company.find(params[:company_id])
+    
+    @locations = Location.all
     @jobs = @company.jobs
   end
 
