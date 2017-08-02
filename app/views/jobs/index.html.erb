@@ -2,7 +2,7 @@ All Jobs for <strong><%= @company.name %></strong>
 
 Locations:
 <% @company.locations.each do |location| %>
-  <ul><%= location.city %></ul>
+  <ul><%= location.city %> - <%= @locations.where(city: "#{location.city}").count %></ul>
 <% end %>
 
 <% @jobs.each do |job| %>

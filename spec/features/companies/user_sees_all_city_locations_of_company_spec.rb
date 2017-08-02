@@ -14,7 +14,3 @@ RSpec.describe "User visits a specific company page" do
     expect(page).to have_content("St. Louis")
   end
 end
-
-# As a user,
-# When I visit a specific company page,
-# I also see a count of how many offices that company has in each specific location listed in descending order.
