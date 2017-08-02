@@ -7,7 +7,7 @@ RSpec.describe "User visits a specific company page" do
     location = company.location.create!(city: "Maui")
     location = company.location.create!(city: "St. Louis")
 
-    visit company_location_path(company, location)
+    visit company_path(company)
 
     expect(page).to have_content("Denver")
     expect(page).to have_content("Maui")
