@@ -1,3 +1,4 @@
+
 Title: <%= @job.title %>
 <br>
 
@@ -9,5 +10,11 @@ Level of Interest: <%= @job.level_of_interest %>
 
 City: <%= @job.city %>
 <br>
+
+Tags: <% @job.tags.each do |tag| %>
+  <p> <%= tag.title %> - <%= tag.count %> (<%= tag.average_salary %>)</p>
+    <% end %>
+<br>
+
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
