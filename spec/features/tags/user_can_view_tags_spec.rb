@@ -36,9 +36,16 @@ describe "User sees a specific job" do
 
   scenario "and can see the count of jobs that have that tag" do
     company = Company.create!(name: "ESPN")
-    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 50000)
+    job1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 50000)
     job2 = company.jobs.create!(title: "Basket Weaver", level_of_interest: 70, city: "Denver", salary: 100000)
+    tag = Tag.create(name: "Coffee")
 
+    job1.tags << tag
+    job2.tags << tag
+
+    visit company_job_path(company, job1)
+
+    expect(page).to have_content("Average salary for jobs with Coffee is 75000")
   end
 
 end
