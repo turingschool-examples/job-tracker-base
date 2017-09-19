@@ -16,8 +16,8 @@ RSpec.describe 'as a user' do
 		job_5.tags << tag_2
 		visit company_job_path(company, job)
 		
-		expect(page).to have_content("Average Salary: 2.5")
+		expect(page).to have_content("(2.5)")
 		visit company_job_path(company_2, job_3)
-		expect(page).to have_content("Average Salary: 8")
+		expect(page).to have_content("(8.0)")
 	end
 end

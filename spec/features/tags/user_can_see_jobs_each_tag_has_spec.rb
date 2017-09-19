@@ -10,7 +10,7 @@ RSpec.describe 'as a user' do
     job_2.tags << tag_1
 		visit company_job_path(company, job)
 		
-		expect(page).to have_content("Jobs: 2")
-		expect(page).to have_content("Jobs: 1")
+		expect(page).to have_content("Programming eh - 2")
+		expect(page).to have_content("Management eh - 1")
 	end
 end

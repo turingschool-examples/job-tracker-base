@@ -13,9 +13,8 @@ City: <%= @job.city %>
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
 	
 <ul>
+	Tags:
 <% @job.tags.each do |tag| %>
-<ui><%= tag.title %> </ui>
-<ui>Jobs: <%= tag.total_jobs %></ui>
-<ui>Average Salary: <%= tag.avg_sal %></ui>
+<ui><%= tag.title %> - <%= tag.total_jobs %> (<%= tag.avg_sal %>)
 <% end %>
 </ul>
