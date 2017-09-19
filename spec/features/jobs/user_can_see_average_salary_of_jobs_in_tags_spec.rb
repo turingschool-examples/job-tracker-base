@@ -15,7 +15,9 @@ describe "User visits a Job's show page" do
 
     visit company_job_path(company, job)
 
+    save_and_open_page
+
     expect(page).to have_content(20)
-    expect(page).to have_content(5005)
+    expect(page).to have_content(4505)
   end
 end
