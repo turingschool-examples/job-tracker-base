@@ -14,8 +14,8 @@ describe "User visits a specific job" do
 
     visit company_job_path(company, job)
 
-    expect(page).to have_content("Awesome (2)")
-    expect(page).to have_content("Baller (1)")
+    expect(page).to have_content("Awesome - 2")
+    expect(page).to have_content("Baller - 1")
   end
 end
 
