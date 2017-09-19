@@ -4,11 +4,7 @@ class Tag < ActiveRecord::Base
   has_many :jobs, through: :job_tags
 
   def average
-    sum = 0
-    jobs.each do |job|
-      sum += job.salary
-    end
-    sum/jobs.count
+    jobs.average(:salary).to_f
   end
 
 end

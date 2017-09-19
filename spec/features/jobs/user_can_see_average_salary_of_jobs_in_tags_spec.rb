@@ -13,6 +13,8 @@ describe "User visits a Job's show page" do
 
     Tag.last.jobs.create(title: "Saiyan", level_of_interest: 9001, city: "Vegeta", salary: 9000)
 
+
+
     visit company_job_path(company, job)
 
     expect(page).to have_content(20)
