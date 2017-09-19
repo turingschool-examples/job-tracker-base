@@ -36,12 +36,12 @@ feature "User" do
                         city: 'Denver', salary: 15000)
       tag = Tag.create!(name: 'DWS')
       tag.jobs = [job, job_2]
-      require "pry"; binding.pry
       job_2.tags << tag
       job.tags << tag
       visit company_job_path(company, job)
       
-      expect(page).to have_content(job.tags.first.salary_average)     
+      expect(page).to have_content(job.tags.first.salary_average) 
+      expect(page).to have_content(17500)    
     end
   end
 end
