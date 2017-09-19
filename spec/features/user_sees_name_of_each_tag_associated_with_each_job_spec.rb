@@ -6,7 +6,6 @@ RSpec.feature "As a user" do
       one_job
 
       visit job_path(@job)
-      save_and_open_page
 
       expect(page).to have_content("Tags:")
       expect(page).to have_content("Service")
