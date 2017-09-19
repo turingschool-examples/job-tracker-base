@@ -11,3 +11,13 @@ City: <%= @job.city %>
 <br>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
+
+
+<br><br>
+Tags for <%= @job.title %>
+<br>
+<ul>
+  <% @job.tags.each do |tag| %>
+<li>  <%= tag.name %> - <%= tag.job_count %> (<%= tag.average_job_salary_with_this_tag %>)</li>
+  <% end  %>
+</ul>
