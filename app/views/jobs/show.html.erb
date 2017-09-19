@@ -16,6 +16,6 @@ Tags: <br>
 
 <% @job.tags.each do |tag| %>
 
-<%= tag.title %>
+<%= tag.title %>: <%= tag.jobs.count %>
 
 <% end %>
