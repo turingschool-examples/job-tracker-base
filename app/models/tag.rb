@@ -11,7 +11,6 @@ class Tag < ApplicationRecord
     salaries = jobs.map do |job|
       job.salary
     end
-    # byebug
     count = jobs.count
     sum = salaries.inject(0){|sum,x| sum + x }
     sum/count
