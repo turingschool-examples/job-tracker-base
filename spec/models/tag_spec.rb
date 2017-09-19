@@ -21,4 +21,20 @@ describe Tag do
       expect(tag).to respond_to(:jobs)
     end
   end
+
+  describe ".count" do
+    it "returns job count" do
+      two_jobs
+
+      expect(@tag.count).to eq(2)
+    end
+  end
+
+  describe ".average_salary" do
+    it "returns average salary" do
+      two_jobs
+
+      expect(@tag.average_salary).to eq(13500)
+    end
+  end
 end
