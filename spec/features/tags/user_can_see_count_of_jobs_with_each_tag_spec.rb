@@ -10,7 +10,7 @@ RSpec.describe "User creates a new tag" do
     tag_2 = job_2.tags.create(title: "good location")
 
     visit job_path(job)
-
+save_and_open_page
     expect(page).to have_content("software: 1")
     expect(page).to have_content("good location: 2")
   end

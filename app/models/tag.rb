@@ -4,6 +4,6 @@ class Tag < ActiveRecord::Base
   has_many :jobs, through: :job_tags
 
   def self.count
-    order(:title).group(:title).count
+    group(:title).order(:title)
   end
 end

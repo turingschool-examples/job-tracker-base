@@ -8,6 +8,7 @@ class TagsController < ApplicationController
   def create
     @job = Job.find(params[:job_id])
     @tag = @job.tags.new(tag_params)
+    pry
     if @tag.save
       redirect_to job_path(@job)
     else
