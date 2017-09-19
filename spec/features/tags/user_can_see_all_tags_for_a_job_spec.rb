@@ -14,7 +14,7 @@ describe "User can see all tags for a job" do
 			tag2 = job.tags.create(name: "Classic Sal")
 			tag3 = job.tags.create(name: "Code")
 
-			visit company_job_page(company, job)
+			visit company_job_path(company, job)
 
 			expect(page).to have_content("Cool")
 			expect(page).to have_content("Classic Sal")
