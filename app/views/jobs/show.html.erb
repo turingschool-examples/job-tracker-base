@@ -16,5 +16,6 @@ Tags: <% @job.tags.each do |tag| %>
 <ul>
   <li><%= tag.name %></li>
   <li>There are <%= tag.jobs.count %> jobs with this tag</li>
+  <li>The average salary for jobs with this tag is $<%= tag.get_average %></li>
 </ul>
 <% end %>
