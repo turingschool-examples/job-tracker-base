@@ -1,4 +1,5 @@
 class Tag < ApplicationRecord
+  validates :name, presence: true
   has_many :job_tags
   has_many :jobs, through: :job_tags
 
@@ -9,5 +10,5 @@ class Tag < ApplicationRecord
   def avg_job_salary
     jobs.average(:salary)
   end
-  
+
 end

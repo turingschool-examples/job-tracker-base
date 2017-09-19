@@ -27,9 +27,10 @@ describe "User sees a specific job" do
     company = Company.create!(name: "ESPN")
     job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 22000)
     tag = job.tags.create(name: "Software")
-    
-    visit company_job_path(company, job)
 
+    visit company_job_path(company, job)
+    expect(page).to have_content("Developer")
+    expect(page).to have_content(1)
     expect(page).to have_content(22000)
   end
 
