@@ -16,6 +16,5 @@ describe "User creates a new tag" do
 
     expect(current_path).to eq(job_tags_path(job))
     expect(page).to have_content("Software")
-    end
   end
 end
