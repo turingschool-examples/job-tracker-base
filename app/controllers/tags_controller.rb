@@ -9,6 +9,7 @@ class TagsController < ApplicationController
     @job = Job.find(params[:job_id])
     @tag = @job.tags.new(tag_params)
     if @tag.save
+      binding.pry
       redirect_to job_path(@job)
     else
       render :new

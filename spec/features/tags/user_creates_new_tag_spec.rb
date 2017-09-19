@@ -13,7 +13,6 @@ describe "User creates a new tag" do
     fill_in "tag[title]", with: "Software"
 
     click_button "Create"
-
     expect(current_path).to eq(job_path(job))
     expect(page).to have_content("Software")
   end
