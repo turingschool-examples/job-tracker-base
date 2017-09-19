@@ -5,9 +5,7 @@ describe "As a user, I visit a specific job page," do
     company = Company.create!(name: "ESPN")
     tag = Tag.create!(title: "Software")
     job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
-    job_tag = JobTag.create!(job_id:job.id, tag_id: tag.id)
-
-
+    job_tag = JobTag.create!(job_id:job.id, tag_id:tag.id)
 
     visit company_job_path(company, job)
 
