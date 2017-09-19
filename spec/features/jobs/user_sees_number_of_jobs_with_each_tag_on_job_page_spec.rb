@@ -1,7 +1,3 @@
-# As a user,
-# When I visit a specific job page,
-# I also see a count of how many jobs have each specific tag listed.
-
 require 'rails_helper'
 
 RSpec.feature "user will see a count of how many jobs have each specifc tag" do

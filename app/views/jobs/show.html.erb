@@ -4,7 +4,7 @@ Title: <%= @job.title %>
 Tags:
 <br>
 <% @job.tags.each do |tag| %>
-<%= tag.name %>: <%= pluralize(tag.jobs.count, "job") %>
+<%= tag.name %>: <%= pluralize(tag.jobs.count, "job") %>, average salary: <%= tag.average_salary %>
 <br>
 <% end %>
 

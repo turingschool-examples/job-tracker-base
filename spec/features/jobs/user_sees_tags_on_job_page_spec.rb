@@ -1,7 +1,3 @@
-# As a user,
-# When I visit a specific job page,
-# I see the name of each of the tags associated with that job.
-
 require 'rails_helper'
 
 RSpec.feature "user can see tags" do
