@@ -9,4 +9,11 @@ describe Tag do
       end
     end
   end
+
+  describe "relationships" do
+    it "has many jobs" do
+      tag = Tag.new(name: "Service")
+      expect(tag).to respond_to(:jobs)
+    end
+  end
 end
