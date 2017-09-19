@@ -10,9 +10,9 @@ describe "User can see all tags for a job" do
 											 company_id: company.id,
 											 city: "Denver",
 											 salary: 1000000)
-			tag1 = Job.tags.create(name: "Cool")
-			tag2 = Job.tags.create(name: "Classic Sal")
-			tag3 = Job.tags.create(name: "Code")
+			tag1 = job.tags.create(name: "Cool")
+			tag2 = job.tags.create(name: "Classic Sal")
+			tag3 = job.tags.create(name: "Code")
 
 			visit company_job_page(company, job)
 
