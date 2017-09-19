@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170919152035) do
+ActiveRecord::Schema.define(version: 20170919153139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,10 @@ ActiveRecord::Schema.define(version: 20170919152035) do
   end
 
   create_table "job_tags", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "job_id"
+    t.integer "tag_id"
+    t.index ["job_id"], name: "index_job_tags_on_job_id", using: :btree
+    t.index ["tag_id"], name: "index_job_tags_on_tag_id", using: :btree
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -36,11 +37,16 @@ ActiveRecord::Schema.define(version: 20170919152035) do
     t.integer  "company_id"
     t.string   "city"
     t.integer  "salary"
-    t.integer  "job_tag_id"
     t.index ["company_id"], name: "index_jobs_on_company_id", using: :btree
-    t.index ["job_tag_id"], name: "index_jobs_on_job_tag_id", using: :btree
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "job_tags", "jobs"
+  add_foreign_key "job_tags", "tags"
   add_foreign_key "jobs", "companies"
-  add_foreign_key "jobs", "job_tags"
 end
