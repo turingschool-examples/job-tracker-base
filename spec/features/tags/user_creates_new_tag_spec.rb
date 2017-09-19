@@ -14,7 +14,7 @@ describe "User creates a new tag" do
 
     click_button "Create"
 
-    expect(current_path).to eq(job_tags_path(job))
+    expect(current_path).to eq(job_path(job))
     expect(page).to have_content("Software")
   end
 end
