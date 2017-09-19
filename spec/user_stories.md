@@ -4,11 +4,11 @@ When I visit a specific job page,
 I see the name of each of the tags associated with that job.
 ++++ -->
 
-```txt
+<!-- ```txt
 As a user,
 When I visit a specific job page,
 I also see a count of how many jobs have each specific tag listed.
-```
+``` -->
 
 ```txt
 As a user,

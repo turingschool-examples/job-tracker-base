@@ -26,6 +26,6 @@ describe "User visits a job page" do
 
     visit company_job_path(company, job)
 
-    expect(page).to have_content("#{tag.text}(2)")
+    expect(page).to have_content("#{tag.text} - 2")
   end
 end
