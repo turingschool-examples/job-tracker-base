@@ -50,6 +50,6 @@ describe "User sees a specific job" do
   # When I visit a specific job page,
     visit company_job_path(company, job)
   # I also see an average salary for all jobs within each specific tag listed.
-    expect(page).to have_content("Software - 1 - (#{job.avg_salary})")
+    expect(page).to have_content("Software - 1 - (#{tag_1.avg_salary})")
   end
 end
