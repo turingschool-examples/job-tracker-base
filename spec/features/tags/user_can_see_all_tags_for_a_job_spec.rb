@@ -60,9 +60,18 @@ describe "User can see all tags for a job" do
 
 			visit company_job_path(company, job1)
 
-			expect(page).to have_content("3 other job(s) with this tag")
-			expect(page).to have_content("2 other job(s) with this tag")
-			expect(page).to have_content("1 other job(s) with this tag")
+			within (".tags-table-#{tag1.id}") do
+				expect(page).to have_content("3")
+			end
+
+			within (".tags-table-#{tag2.id}") do
+				expect(page).to have_content("2")
+			end
+
+			within (".tags-table-#{tag3.id}") do
+				expect(page).to have_content("1")
+			end
+
 		end
 	end
 end
