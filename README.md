@@ -10,5 +10,3 @@ bundle install
 bundle exec rake db:setup
 bundle exec rails server
 ```
-
-Submit your solution with a Pull Request.
