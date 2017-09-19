@@ -1,3 +1,4 @@
+
 Title: <%= @job.title %>
 <br>
 
@@ -11,7 +12,7 @@ City: <%= @job.city %>
 <br>
 
 Tags: <% @job.tags.each do |tag| %>
-  <p> <%= tag.title %> - <%= tag.jobs.count %> (<%= tag.jobs.average(:salary).to_i  %>)</p>
+  <p> <%= tag.title %> - <%= tag.count %> (<%= tag.average_salary %>)</p>
     <% end %>
 <br>
 
