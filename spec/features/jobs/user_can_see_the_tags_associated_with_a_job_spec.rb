@@ -28,4 +28,19 @@ describe "User visits a job page" do
 
     expect(page).to have_content("#{tag.text} - 2")
   end
+  scenario "a user can see the average salary for jobs with a particular tag" do
+    company = Company.create!(name: "ESPN")
+
+    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 10000)
+    job2 = company.jobs.create!(title: "Fortran Developer", level_of_interest: 70, city: "Denver", salary: 12000)
+    job3 = company.jobs.create!(title: "Fortran Developer", level_of_interest: 70, city: "Denver", salary: 9000)
+
+    tag = Tag.create(text: 'coolio', job: job)
+    tag2 = Tag.create(text: 'coolio', job: job2)
+    tag3 = Tag.create(text: 'coolio', job: job3)
+
+    visit company_job_path(company, job)
+
+    expect(page).to have_content("#{tag.text} - 3 - ($10,333.33)")
+  end
 end

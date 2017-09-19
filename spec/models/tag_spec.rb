@@ -48,10 +48,12 @@ RSpec.describe Tag, type: :model do
       company = Company.create!(name: "ESPN")
       job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 10000)
       job2 = company.jobs.create!(title: "Fortran Developer", level_of_interest: 70, city: "Denver", salary: 12000)
+      job3 = company.jobs.create!(title: "Fortran Developer", level_of_interest: 70, city: "Denver", salary: 9000)
       tag = Tag.create(text: 'coolio', job: job)
       tag2 = Tag.create(text: 'coolio', job: job2)
+      tag3 = Tag.create(text: 'coolio', job: job3)
 
-      expect(tag.average_salary_for_jobs_with_tag).to eq(11000)    
+      expect(tag.average_salary_for_jobs_with_tag.round(2)).to eq(10333.33)
     end
   end
 end
