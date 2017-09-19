@@ -42,4 +42,17 @@ describe "User sees a specific job" do
     expect(page).to have_content("2")
     expect(page).to have_content("3")
   end
+  scenario "and sees the average salary for that job" do
+    company = Company.create!(name: "ESPN")
+    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 70000)
+    tag = job.tags.create!(name: "Rails")
+    job_2 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 50000)
+    job_2.tags << tag
+
+    visit company_job_path(company, job)
+
+    expect(page).to have_content("ESPN")
+    expect(page).to have_content("Rails")
+    expect(page).to have_content("60000")
+  end
 end
