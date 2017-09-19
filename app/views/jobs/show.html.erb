@@ -18,6 +18,6 @@ Tags for <%= @job.title %>
 <br>
 <ul>
   <% @job.tags.each do |tag| %>
-<li>  <%= tag.name %> - <%= tag.job_count %> </li>
+<li>  <%= tag.name %> - <%= tag.job_count %> (<%= tag.average_job_salary_with_this_tag %>)</li>
   <% end  %>
 </ul>

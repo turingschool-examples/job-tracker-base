@@ -78,6 +78,6 @@ describe "User sees a specific job" do
     expect(page).to have_content(tag1.name)
     expect(page).to have_content(tag2.name)
     expect(page).to have_content("Software - 5 (100000)")
-    expect(page).to have_content("Good-Location - 9 (75000)")
+    expect(page).to have_content("Good-Location - 9 (88889)")
   end
 end
