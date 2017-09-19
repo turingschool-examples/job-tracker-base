@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "User sees a specific job" do
   scenario "a user sees a job for a specific company" do
     company = Company.create!(name: "ESPN")
-    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 50)
 
     visit company_job_path(company, job)
 
@@ -14,7 +14,7 @@ describe "User sees a specific job" do
 
   scenario "a user sees the tags for a job" do
     company = Company.create!(name: "ESPN")
-    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 50)
     tag_1 = job.tags.create(title: 'Software')
     tag_2 = job.tags.create(title: 'Fun')
     # As a user,
@@ -27,7 +27,7 @@ describe "User sees a specific job" do
 
   scenario "a user sees a count of how many jobs a tag has" do
     company = Company.create!(name: "ESPN")
-    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 50)
     tag_1 = job.tags.create(title: 'Software')
     tag_2 = job.tags.create(title: 'Fun')
 
@@ -42,14 +42,14 @@ describe "User sees a specific job" do
     job_2 = company.jobs.create!(title: "Developer2", level_of_interest: 70, city: "Denver", salary: 75)
     job_3 = company.jobs.create!(title: "Developer3", level_of_interest: 70, city: "Denver", salary: 100)
 
-    tag_1 = job.tags.create(title: 'Software')
-    tag_1 = job_2.tags.create(title: 'Software')
-    tag_1 = job_3.tags.create(title: 'Software')
-    tag_2 = job.tags.create(title: 'Fun')
+    tag_1 = Tag.create(title: 'Software')
+    job.tags << tag_1
+    job_2.tags << tag_1
+    job_3.tags << tag_1
   # As a user,
   # When I visit a specific job page,
     visit company_job_path(company, job)
   # I also see an average salary for all jobs within each specific tag listed.
-    expect(page).to have_content("Software - 2 - (#{job.avg_salary})")
+    expect(page).to have_content("Software - 1 - (#{job.avg_salary})")
   end
 end
