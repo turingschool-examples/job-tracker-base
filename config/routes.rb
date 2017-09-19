@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :jobs, only: [:show] do
-    resources :tags, only: [:new, :create]
+    resources :tags, only: [:new, :create, :index]
   end
 
 

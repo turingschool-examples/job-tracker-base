@@ -5,22 +5,17 @@ describe "User creates a new tag" do
     company = Company.create!(name: "ESPN")
     job = company.jobs.create(title: "Developer", description: "So fun!", level_of_interest: 80, city: "Denver")
 
-    visit new_job_tag_path(job)
+    visit job_path(job)
+
+    click_on "Create New Tag"
+    expect(current_path).to eq(new_job_tag_path(job))
 
     fill_in "tag[title]", with: "Software"
-    fill_in "job[description]", with: "So fun!"
-    fill_in "job[level_of_interest]", with: 80
-    fill_in "job[city]", with: "Denver"
 
     click_button "Create"
 
-    expect(current_path).to eq("/companies/#{company.id}/jobs/#{Job.last.id}")
-    expect(page).to have_content("ESPN")
-    expect(page).to have_content("Developer")
-    expect(page).to have_content("80")
-    expect(page).to have_content("Denver")
-
-
+    expect(current_path).to eq(job_tags_path(job))
+    expect(page).to have_content("Software")
     end
   end
 end
