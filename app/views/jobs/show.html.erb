@@ -1,6 +1,13 @@
 Title: <%= @job.title %>
 <br>
 
+Tags:
+<br>
+<% @job.tags.each do |tag| %>
+<%= tag.name %>: <%= pluralize(tag.jobs.count, "job") %>
+<br>
+<% end %>
+
 Description: <%= @job.description %>
 <br>
 
