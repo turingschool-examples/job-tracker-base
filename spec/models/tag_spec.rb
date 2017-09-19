@@ -7,6 +7,11 @@ describe Tag do
         tag = Tag.new
         expect(tag).to be_invalid
       end
+      it "is invalid if name already exists" do
+        Tag.create(name: "Service")
+        tag_2 = Tag.create(name: "Service")
+        expect(tag_2).to be_invalid
+      end
     end
   end
 
