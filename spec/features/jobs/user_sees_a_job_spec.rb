@@ -24,4 +24,16 @@ describe "User sees a specific job" do
     expect(page).to have_content(tag_1.title)
     expect(page).to have_content(tag_2.title)
   end
+
+  scenario "a user sees a count of how many jobs a tag has" do
+    company = Company.create!(name: "ESPN")
+    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+    tag_1 = job.tags.create(title: 'Software')
+    tag_2 = job.tags.create(title: 'Fun')
+    # As a user,
+    # When I visit a specific job page,
+    visit company_job_path(company, job)
+    # I also see a count of how many jobs have each specific tag listed
+    expect(page).to have_content("Tag Count: #{job.tags.count}")
+  end
 end
