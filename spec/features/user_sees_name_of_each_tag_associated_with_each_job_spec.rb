@@ -8,7 +8,7 @@ RSpec.feature "As a user" do
       visit company_jobs_path(@company, @job)
 
       expect(page).to have_content("Tags:")
-      expect(page).to have_content("Service - 5 (10000)")
+      expect(page).to have_content("Service")
     end
   end
 end
