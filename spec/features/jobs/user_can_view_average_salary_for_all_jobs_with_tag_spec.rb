@@ -12,8 +12,9 @@ describe "when a user visits a specific job page" do
 
 
     visit company_job_path(company, job1)
+    save_and_open_page
 
-    expect(page).to have_content("#{tag1.name} 2 (150)")
-    expect(page).to have_content("#{tag2.name} 2 (150)")
+    expect(page).to have_content("#{tag1.name} - 2 (150)")
+    expect(page).to have_content("#{tag2.name} - 2 (150)")
   end
 end
