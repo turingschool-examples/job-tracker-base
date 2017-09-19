@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+require 'rails_helper'
+
 describe "User sees a specific job" do
   scenario "a user sees a job for a specific company" do
     company = Company.create!(name: "ESPN")
@@ -29,8 +31,7 @@ describe "User sees a specific job" do
     tag = job.tags.create(name: "Software")
 
     visit company_job_path(company, job)
-    expect(page).to have_content("Developer")
-    expect(page).to have_content(1)
+
     expect(page).to have_content(22000)
   end
 
