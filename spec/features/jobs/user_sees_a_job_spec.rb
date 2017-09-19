@@ -20,7 +20,7 @@ describe "User sees a specific job" do
     job.tags << tag
 
     visit company_job_path(company, job)
-
+save_and_open_page
     expect(page).to have_content(tag.name)
   end
 end
