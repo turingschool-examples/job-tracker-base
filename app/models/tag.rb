@@ -8,11 +8,6 @@ class Tag < ApplicationRecord
   end
 
   def average_salary
-    salaries = jobs.map do |job|
-      job.salary
-    end
-    count = jobs.count
-    sum = salaries.inject(0){|sum,x| sum + x }
-    sum/count
+    jobs.average(:salary)
   end
 end
