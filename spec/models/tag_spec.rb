@@ -23,4 +23,14 @@ describe Tag do
       expect(tag).to respond_to(:jobs)
     end
   end
+
+  describe "average method" do
+    it "can find the average salary of jobs belonging to it" do
+      tag = Tag.create(title: "Tech")
+      tag.jobs.create(title: "Software", level_of_interest: 70, city: "Denver", salary: 100)
+      tag.jobs.create(title: "Software", level_of_interest: 70, city: "Denver", salary: 200)
+
+      expect(tag.average).to eq(150)
+    end
+  end
 end
