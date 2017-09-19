@@ -9,7 +9,7 @@ describe "User creates a new job" do
 
     visit company_job_path(company, job)
 
-    expect(page)to have_content("Awesome")
-    expect(page)to have_content("Baller")
+    expect(page).to have_content("Awesome")
+    expect(page).to have_content("Baller")
   end
 end
