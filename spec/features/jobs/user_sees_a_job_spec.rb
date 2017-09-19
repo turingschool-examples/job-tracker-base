@@ -27,4 +27,26 @@ describe "User sees a specific job" do
     expect(page).to have_content("Great Salary")
     expect(page).to have_content("Good Location")
   end
+  scenario "a user sees count of how many jobs have a specific tag" do
+    company = Company.create!(name: "ESPN")
+    job_1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+    job_2 = company.jobs.create!(title: "ButtMonkey", level_of_interest: 60, city: "New York")
+    tag_1 = Tag.create!(title: "Good Location")
+    tag_2 = Tag.create!(title: "Great Salary")
+    tag_3 = Tag.create!(title: "Good Management")
+
+    JobTag.create(job: job_1, tag: tag_1)
+    JobTag.create(job: job_2, tag: tag_1)
+    JobTag.create(job: job_1, tag: tag_2)
+    JobTag.create(job: job_1, tag: tag_3)
+    JobTag.create(job: job_2, tag: tag_3)
+
+    visit company_job_path(company, job_1)
+
+    expect(page).to have_content("Good Management")
+    expect(page).to have_content("Great Salary")
+    expect(page).to have_content("Good Location")
+    expect(page).to have_content("2")
+    expect(page).to have_content("1")
+  end
 end

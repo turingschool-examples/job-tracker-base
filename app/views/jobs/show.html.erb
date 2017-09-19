@@ -13,5 +13,5 @@ City: <%= @job.city %>
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
 <% @job.tags.each do |tag| %>
-  <p>Tags: <%= tag.title %></p>
+  <p>Tags: <%= tag.title %>, Jobs assoc with this tag: <%= tag.job_count %></p>
 <% end %>
