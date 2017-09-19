@@ -6,4 +6,8 @@ class Tag < ApplicationRecord
   def job_count
     jobs.count
   end
+
+  def avg_salary
+    jobs.average(:salary).to_i
+  end
 end
