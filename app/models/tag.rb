@@ -6,4 +6,8 @@ class Tag < ActiveRecord::Base
   def count
     jobs.count
   end
+
+  def average_salary
+    jobs.average(:salary).to_i
+  end
 end
