@@ -5,7 +5,8 @@ RSpec.feature "As a user" do
     it "I see the name of each of the tags associated with that job" do
       one_job
 
-      visit company_jobs_path(@company, @job)
+      visit job_path(@job)
+      save_and_open_page
 
       expect(page).to have_content("Tags:")
       expect(page).to have_content("Service")
