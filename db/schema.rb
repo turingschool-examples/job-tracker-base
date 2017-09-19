@@ -22,12 +22,12 @@ ActiveRecord::Schema.define(version: 20170919150652) do
   end
 
   create_table "job_tags", force: :cascade do |t|
-    t.integer  "jobs_id"
-    t.integer  "tags_id"
+    t.integer  "job_id"
+    t.integer  "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["jobs_id"], name: "index_job_tags_on_jobs_id", using: :btree
-    t.index ["tags_id"], name: "index_job_tags_on_tags_id", using: :btree
+    t.index ["job_id"], name: "index_job_tags_on_job_id", using: :btree
+    t.index ["tag_id"], name: "index_job_tags_on_tag_id", using: :btree
   end
 
   create_table "jobs", force: :cascade do |t|
