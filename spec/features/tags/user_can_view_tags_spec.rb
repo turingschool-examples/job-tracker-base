@@ -29,9 +29,9 @@ describe "User sees a specific job" do
 
     visit company_job_path(company, job)
 
-    expect(page).to have_content("Commute: 2")
-    expect(page).to have_content("Good Benefits: 1")
-    expect(page).to have_content("Coffee: 1")
+    expect(page).to have_content("Commute - 2")
+    expect(page).to have_content("Good Benefits - 1")
+    expect(page).to have_content("Coffee - 1")
   end
 
   scenario "and can see the count of jobs that have that tag" do
@@ -45,16 +45,7 @@ describe "User sees a specific job" do
 
     visit company_job_path(company, job1)
 
-    expect(page).to have_content("Average salary for jobs with Coffee is 75000")
+    expect(page).to have_content("Coffee - 2 ($75,000.00)")
   end
 
 end
-
-
-
-
-
-
-# As a user,
-# When I visit a specific job page,
-# I also see an average salary for all jobs within each specific tag listed.

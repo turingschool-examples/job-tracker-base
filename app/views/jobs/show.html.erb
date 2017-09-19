@@ -12,9 +12,7 @@ City: <%= @job.city %>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
-
-Tags:
 <% @job.tags.each do |tag| %>
-<%= tag.name %>: <%= tag.jobs.count %>
-Average salary for jobs with <%= tag.name %> is <%= tag.average_salary %>
+Tags:
+<%= tag.name %> - <%= tag.jobs.count %> (<%= number_to_currency(tag.average_salary) %>)
 <% end %>
