@@ -23,7 +23,6 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @tag = Tag.find(params[:id])
-    binding.pry
   end
 
   def edit
