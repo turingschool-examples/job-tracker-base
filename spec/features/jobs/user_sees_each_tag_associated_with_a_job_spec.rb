@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe 'User visits specific job page' do
   scenario 'user sees each of the tags associated with that job' do
-    company = Company.create(id: 75, name: 'alkajsdlkjlk')
-    job = Job.create(title: 'stuff doer', description: 'you do stuff', level_of_interest: 8, city: 'city', salary: 10, company_id: 75)
-    tag = Tag.create(id: 5, title: 'super cool')
+    company = Company.create(name: 'alkajsdlkjlk')
+    job = Job.create(title: 'stuff doer', description: 'you do stuff', level_of_interest: 8, city: 'city', salary: 10)
+    tag = Tag.create(title: 'super cool')
 
     visit ("/companies/#{company.id}/jobs/#{job.id}")
 
