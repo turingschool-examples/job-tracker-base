@@ -1,8 +1,8 @@
-```txt
+<!-- ++++txt
 As a user,
 When I visit a specific job page,
 I see the name of each of the tags associated with that job.
-```
+++++ -->
 
 ```txt
 As a user,
