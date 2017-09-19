@@ -14,7 +14,7 @@ describe 'User visits specific job page' do
     expect(page).to have_content("Description: you do stuff")
     expect(page).to have_content("Level of Interest: 8")
     expect(page).to have_content("City: city")
-    expect(page).to have_content("Company: we do stuff here")
+    expect(page).to have_content("Company: alkajsdlkjlk")
     expect(page).to have_content("Tags: super cool")
 
   end
