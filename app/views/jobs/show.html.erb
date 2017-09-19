@@ -13,5 +13,9 @@ City: <%= @job.city %>
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
 <% @job.tags.each do |tag| %>
-<%= tag.name %>
+<p><%= tag.name %> - <%= tag.job_count %> - <%= tag.avg_job_salary %> </p>
 <% end %>
+
+
+Job : Developer
+Tags: Software - 5 (100000), Good-Location - 9 (75000)
