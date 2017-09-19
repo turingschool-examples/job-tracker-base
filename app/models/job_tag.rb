@@ -1,4 +1,4 @@
-class JobTag < ActiveRecord::Base
-  belongs_to :tag
+class JobTag < ApplicationRecord
   belongs_to :job
+  belongs_to :tag
 end
