@@ -1,0 +1,57 @@
+U:2ActiveRecord::ConnectionAdapters::SchemaCache[
+l+Ù²…hX{I"ar_internal_metadata:ET[	o:7ActiveRecord::ConnectionAdapters::PostgreSQLColumn:
+@nameI"key;T:@table_nameI"ar_internal_metadata;T:@sql_type_metadataU:=ActiveRecord::ConnectionAdapters::PostgreSQLTypeMetadata[	:__v2__[	:@type_metadata:	@oid:
+@fmod:@array[	o:6ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+:@sql_typeI"character varying;T:
+@type:string:@limit0:@precision0:@scale0iiúF@:
+@nullF:@default0:@default_function0:@collation0:@comment0o;;I"
+value;T;	@;
+U;[	;[	;;;;[	o;
+;I"character varying;T;;;0;0;0iiúF@;T;0;0;0;0o;;I"created_at;T;	@;
+U;[	;[	;;;;[	o;
+;I" timestamp without time zone;T;:datetime;0;0;0iZiúF@";F;0;0;0;0o;;I"updated_at;T;	@;
+U;[	;[	;;;;[	o;
+;I" timestamp without time zone;T;;;0;0;0iZiúF@*;F;0;0;0;0I"	tags;T[	o;;I"id;T;	I"	tags;T;
+U;[	;[	;;;;[	o;
+;I"integer;T;:integer;0;0;0iiúF@5;F;0;I"%nextval('tags_id_seq'::regclass);T;0;0o;;I"	text;T;	@0;
+U;[	;[	;;;;[	o;
+;I"character varying;T;;;0;0;0iiúF@>;T;0;0;0;0o;;I"created_at;T;	@0;
+U;[	;[	;;;;[	o;
+;I" timestamp without time zone;T;;;0;0;0iZiúF@F;F;0;0;0;0o;;I"updated_at;T;	@0;
+U;[	;[	;;;;[	o;
+;I" timestamp without time zone;T;;;0;0;0iZiúF@N;F;0;0;0;0I"job_tags;T[o;;I"id;T;	I"job_tags;T;
+U;[	;[	;;;;[	o;
+;I"integer;T;;;0;0;0iiúF@Y;F;0;I")nextval('job_tags_id_seq'::regclass);T;0;0o;;I"tag_id;T;	@T;
+U;[	;[	;;;;[	o;
+;I"integer;T;;;0;0;0iiúF@b;T;0;0;0;0o;;I"job_id;T;	@T;
+U;[	;[	;;;;[	o;
+;I"integer;T;;;0;0;0iiúF@j;T;0;0;0;0I"companies;T[	o;;I"id;T;	I"companies;T;
+U;[	;[	;;;;[	o;
+;I"integer;T;;;0;0;0iiúF@u;F;0;I"*nextval('companies_id_seq'::regclass);T;0;0o;;I"	name;T;	@p;
+U;[	;[	;;;;[	o;
+;I"character varying;T;;;0;0;0iiúF@~;T;0;0;0;0o;;I"created_at;T;	@p;
+U;[	;[	;;;;[	o;
+;I" timestamp without time zone;T;;;0;0;0iZiúF@;F;0;0;0;0o;;I"updated_at;T;	@p;
+U;[	;[	;;;;[	o;
+;I" timestamp without time zone;T;;;0;0;0iZiúF@‰;F;0;0;0;0I"	jobs;T[o;;I"id;T;	I"	jobs;T;
+U;[	;[	;;;;[	o;
+;I"integer;T;;;0;0;0iiúF@”;F;0;I"%nextval('jobs_id_seq'::regclass);T;0;0o;;I"
+title;T;	@;
+U;[	;[	;;;;[	o;
+;I"character varying;T;;;0;0;0iiúF@;T;0;0;0;0o;;I"description;T;	@;
+U;[	;[	;;;;[	o;
+;I"character varying;T;;;0;0;0iiúF@¥;T;0;0;0;0o;;I"level_of_interest;T;	@;
+U;[	;[	;;;;[	o;
+;I"integer;T;;;0;0;0iiúF@­;T;0;0;0;0o;;I"created_at;T;	@;
+U;[	;[	;;;;[	o;
+;I" timestamp without time zone;T;;;0;0;0iZiúF@µ;F;0;0;0;0o;;I"updated_at;T;	@;
+U;[	;[	;;;;[	o;
+;I" timestamp without time zone;T;;;0;0;0iZiúF@½;F;0;0;0;0o;;I"company_id;T;	@;
+U;[	;[	;;;;[	o;
+;I"integer;T;;;0;0;0iiúF@Å;T;0;0;0;0o;;I"	city;T;	@;
+U;[	;[	;;;;[	o;
+;I"character varying;T;;;0;0;0iiúF@Í;T;0;0;0;0o;;I"salary;T;	@;
+U;[	;[	;;;;[	o;
+;I"integer;T;;;0;0;0iiúF@Õ;T;0;0;0;0I"schema_migrations;T[o;;I"version;T;	I"schema_migrations;T;
+U;[	;[	;;;;[	o;
+;I"character varying;T;;;0;0;0iiúF@à;F;0;0;0;0{I"ar_internal_metadata;T{	@@@@@@@%@$I"	tags;T{	@/@.@9@8@A@@@I@HI"job_tags;T{@S@R@]@\@e@dI"companies;T{	@o@n@y@x@|@{@„@ƒI"	jobs;T{@@@˜@—@ @Ÿ@¨@§@°@¯@¸@·@À@¿@È@Ç@Ğ@ÏI"schema_migrations;T{@Ú@Ù{I"ar_internal_metadata;TI"key;TI"	tags;TI"id;TI"job_tags;TI"id;TI"companies;TI"id;TI"	jobs;TI"id;TI"schema_migrations;TI"version;T{I"ar_internal_metadata;TTI"	tags;TTI"job_tags;TTI"companies;TTI"	jobs;TTI"schema_migrations;TT
