@@ -6,8 +6,11 @@ describe "User visits a job page" do
 
     job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
 
-    tag = job.tags.create(text: "Cool location")
-    tag2 = job.tags.create(text: "Good benefits")
+    tag = Tag.create(text: "Cool location")
+    tag2 = Tag.create(text: "Good benefits")
+
+    JobTag.create(tag: tag, job: job)
+    JobTag.create(tag: tag2, job: job)
 
     visit company_job_path(company, job)
 
@@ -20,9 +23,12 @@ describe "User visits a job page" do
     job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
     job2 = company.jobs.create!(title: "Database Janitor", level_of_interest: 70, city: "Denver")
 
-    tag = job.tags.create(text: "Cool location")
-    tag2 = job2.tags.create(text: "Cool location")
-    tag3 = job.tags.create(text: "Good benefits")
+    tag = Tag.create(text: "Cool location")
+    tag2 = Tag.create(text: "Good benefits")
+
+    JobTag.create(tag: tag, job: job)
+    JobTag.create(tag: tag, job: job)
+    JobTag.create(tag: tag2, job: job2)
 
     visit company_job_path(company, job)
 
@@ -35,9 +41,13 @@ describe "User visits a job page" do
     job2 = company.jobs.create!(title: "Fortran Developer", level_of_interest: 70, city: "Denver", salary: 12000)
     job3 = company.jobs.create!(title: "Fortran Developer", level_of_interest: 70, city: "Denver", salary: 9000)
 
-    tag = Tag.create(text: 'coolio', job: job)
-    tag2 = Tag.create(text: 'coolio', job: job2)
-    tag3 = Tag.create(text: 'coolio', job: job3)
+    tag = Tag.create(text: 'coolio')
+    tag2 = Tag.create(text: 'coolio')
+    tag3 = Tag.create(text: 'coolio')
+
+    JobTag.create(job: job, tag: tag)
+    JobTag.create(job: job2, tag: tag)
+    JobTag.create(job: job3, tag: tag)
 
     visit company_job_path(company, job)
 

@@ -1,16 +1,19 @@
 class Tag < ApplicationRecord
   belongs_to :job
-  validates :text, :job, presence: true
-  validates_uniqueness_of :text, :scope => :job
+  has_many :job_tags
+  has_many :jobs, through: :job_tags
+    validates :text, presence: true
 
   def count_of_jobs_with_tag
-    Tag.where(text: self.text).count
+    JobTag
+    .where(tag_id: self.id)
+    .count
   end
 
   def average_salary_for_jobs_with_tag
     Tag
-    .where(text: self.text)
-    .joins(:job)
+    .joins(:job_tags)
+    .joins(:jobs)
     .average(:salary)
   end
 end
