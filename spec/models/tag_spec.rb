@@ -44,7 +44,15 @@ describe Tag do
     end
 
     it '#average_salary calculates the average salary of all jobs with a specific tag' do
+      company = Company.create!(name: "ESPN")
+      job1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 80000)
+      job2 = company.jobs.create!(title: "Technician", level_of_interest: 50, city: "Longmont", salary: 40000)
+      tag1 = job1.tags.create!(title: "Software")
+      tag2 = job1.tags.create!(title: "Far Away")
+      job2.tags << tag1
 
+      expect(tag1.average_salary).to eq(60000)
+      expect(tag2.average_salary).to eq(80000)
     end
   end
 end
