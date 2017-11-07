@@ -10,6 +10,7 @@ class JobTag < ApplicationRecord
   def self.average_salary_within_tag(tag_id)
     where(tag_id: tag_id)
     .jobs
-    .pluck
+    .pluck(:salary)
+    .average
   end
 end
