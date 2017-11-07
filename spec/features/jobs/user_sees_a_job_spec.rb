@@ -18,7 +18,7 @@ describe "User sees a specific job" do
     tag = company.jobs.last.tags.create!(name: "Sports Entertainment")
 
     visit company_job_path(company, job)
-    save_and_open_page
+    
     expect(page).to have_content("Tags:")
     expect(page).to have_content("Sports Entertainment")
     expect(page).to have_content("1")
