@@ -5,6 +5,7 @@ describe "When a visit a specific job page" do
     scenario "I see all tags associated with a job" do
       company = Company.create!(name: "ESPN")
       job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+
       job.tags.create(name: "Great-company")
       job.tags.create(name: "Software")
 
