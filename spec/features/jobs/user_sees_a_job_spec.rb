@@ -15,8 +15,8 @@ describe "User sees a specific job" do
   scenario "I see the name of each of the tags associated with that job" do
     company = Company.create!(name: "ESPN")
     job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
-    tag_1 = job.tags.create!(titel: "Software")
-    tag_2 = job.tags.create!(titel: "Good-Location")
+    tag_1 = job.tags.create!(title: "Software")
+    tag_2 = job.tags.create!(title: "Good-Location")
 
     visit company_job_path(company, job)
 
