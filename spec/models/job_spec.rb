@@ -33,4 +33,17 @@ describe Job do
       expect(job).to respond_to(:company)
     end
   end
+
+  describe "Class/Scope Methods" do
+    describe ".total_salary" do
+      it "returns the total salary of all jobs" do
+        company = Company.create(name: "Company_1")
+        job = Job.create(title: "Software", city: "Denver", level_of_interest: 70, description: "Wahooo", company: company)
+        job_1 = Job.create(title: "Software", city: "Denver", level_of_interest: 70, description: "Wahooo", salary: 100000, company: company)
+        job_2 = Job.create(title: "Software", city: "Denver", level_of_interest: 70, description: "Wahooo", salary: 100000, company: company)
+
+        expect(Job.total_salary).to eq(200000)
+      end
+    end
+  end
 end
