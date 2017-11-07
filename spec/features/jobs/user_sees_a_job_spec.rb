@@ -42,10 +42,12 @@ describe "User sees a specific job" do
     job_3 = company.jobs.create(title: "Also Also Developer", level_of_interest: 20, city: "Denver")
     job_3.tags.create(title: "Full Stack")
 
+    byebug
+
     visit company_job_path(company, job_1)
     save_and_open_page
 
-  
+
     expect(page).to have_content("Other Jobs Tagged with FE: 1")
     expect(page).to have_content("Other Jobs Tagged with BE: 2")
     expect(page).to have_content("Other Jobs Tagged with Full Stack: 3")
