@@ -20,7 +20,7 @@ describe Tag do
   describe "relationships" do
     it "has many jobs" do
       tag = Tag.new(name: "red")
-      expect(job).to respond_to(:jobs)
+      expect(tag).to respond_to(:jobs)
     end
   end
 end

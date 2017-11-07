@@ -22,10 +22,11 @@ feature "When a user sees a specific job" do
   end
 
   scenario "they see the tags for that job inc. name, job count, and mean salary" do
-    red = Tag.create!(name: "red", job_id: 1)
-    blue = Tag.create!(name: "blue", job_id: 1)
+    job = Job.first
+    red = job.tags.create!(name: "red")
+    blue = job.tags.create!(name: "blue")
     blue.jobs.create!(title: "x", level_of_interest: 1, city: "x", salary: 1)
-    visit company_job_path(company, job)
+    visit company_job_path(1, 1)
 
     expect(page).to have_content("red - 1 (9)")
     expect(page).to have_content("blue - 2 (5)")
