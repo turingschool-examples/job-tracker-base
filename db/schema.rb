@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107161315) do
+ActiveRecord::Schema.define(version: 20171107163503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,9 @@ ActiveRecord::Schema.define(version: 20171107161315) do
     t.integer  "company_id"
     t.string   "city"
     t.integer  "salary"
+    t.integer  "tag_id"
     t.index ["company_id"], name: "index_jobs_on_company_id", using: :btree
+    t.index ["tag_id"], name: "index_jobs_on_tag_id", using: :btree
   end
 
   create_table "jobtags", force: :cascade do |t|
@@ -49,4 +51,5 @@ ActiveRecord::Schema.define(version: 20171107161315) do
   end
 
   add_foreign_key "jobs", "companies"
+  add_foreign_key "jobs", "tags"
 end
