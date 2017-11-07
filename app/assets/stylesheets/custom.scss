@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  h2 { font-weight: 400 }
+  span {
+    color: mediumaquamarine;
+    font-weight: 700;
+  }
+  a {
+    text-decoration: none;
+    color: purple;
+    &:hover {
+      font-weight: 700;
+      border: 2px dotted mediumaquamarine;
+      color: mediumaquamarine;
+    }
+  }
+  div {
+    width: 50%;
+    border: 10px dotted mediumaquamarine;
+  }
+}
