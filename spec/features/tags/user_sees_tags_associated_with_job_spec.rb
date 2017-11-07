@@ -23,7 +23,7 @@ describe "User visits a job show page" do
   let!(:cooler_than)   { chic_factory.jobs.create(title: "2chich2furious", level_of_interest: 20, city: 'LA', salary: 80000)}
 
   let!(:horticulture) { mj_emporium.jobs.create!(title: "horticulturalist", level_of_interest: 70, city: "Denver", salary: 20000)}
-  let!(:curator)      { mj_emporium.jobs.create!(title: "curator", level_of_interest: 70, city: "Denver", salary: 30000)}
+  let!(:curator)      { mj_emporium.jobs.create!(title: "curator",          level_of_interest: 70, city: "Denver", salary: 30000)}
   let!(:SM_influence) { mj_emporium.jobs.create!(title: "media influencer", level_of_interest: 20, city: "Denver", salary: 40000)}
 
   scenario "and sees tags associated with specific job" do
