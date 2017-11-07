@@ -9,9 +9,10 @@ describe "When a visit a specific job page" do
       @job.tags.create(name: "Great-company")
       @job.tags.create(name: "Software")
 
-      visit company_job_path(@company, @job)
     end
     scenario "I see all tags associated with a job" do
+      visit company_job_path(@company, @job)
+
       expect(page).to have_content("ESPN")
       expect(page).to have_content("Developer")
       expect(page).to have_content("70")
@@ -22,7 +23,21 @@ describe "When a visit a specific job page" do
       end
     end
 
-    xscenario "I see tags that have more than just one job" do
+    scenario "I see tags that have more than just one job" do
+      company2 = Company.create!(name: "Guild Education")
+      job2 = company2.jobs.create!(title: "Developer", level_of_interest: 90, city: "Denver")
+
+      job2.tags.create(name: "Great-company")
+      job2.tags.create(name: "Software")
+      job2.tags.create(name: "Education")
+
+      visit company_job_path(company2, job2)
+
+      within ".job-tags" do
+        expect(page).to have_content("Great-company - 2")
+        expect(page).to have_content("Software - 2")
+        expect(page).to have_content("Software - 1")
+      end
 
     end
   end
