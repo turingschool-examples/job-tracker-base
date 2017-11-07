@@ -4,4 +4,7 @@ class Tag < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
+  def average_salary
+    jobs.average(:salary)
+  end
 end
