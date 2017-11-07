@@ -38,5 +38,21 @@ describe "user visits job show page" do
 
     expect(page).to have_content(job1.title)
     expect(page).to have_content("#{tag.name} - #{tag.count_of_jobs}")
+
+    tag2 = Tag.create(name: "Bad Job")
+    job3 = company.jobs.create(title: "The Toilet Store",
+                               description: "Sell pants",
+                               level_of_interest: 1,
+                               city: "Bark Twice if You're in Milwalke",
+                               salary: 10000)
+    TagJob.create(tag: tag2, job: job3)
+    
+    expect(page).not_to have_content(tag2.name)
+    expect(page).to have_content("Good Location - 2")
+
+    visit company_job_path(company, job3)
+
+    expect(page).to have_content(job3.title)
+    expect(page).to have_content("#{tag2.name} - 1")
   end
 end
