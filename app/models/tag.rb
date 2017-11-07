@@ -7,4 +7,9 @@ class Tag < ApplicationRecord
     jobs.size
   end
 
+  def average_salary
+    jobs.average(:salary)
+  
+  end
+
 end
