@@ -11,5 +11,8 @@
   <%= f.label :city %>
   <%= f.text_field :city %>
 
+  <%= f.label :salary %>
+  <%= f.number_field :salary, min: 0 %>
+
   <%= f.submit %>
 <% end %>
