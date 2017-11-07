@@ -10,12 +10,13 @@ Level of Interest: <%= @job.level_of_interest %>
 City: <%= @job.city %>
 <br>
 
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
+Company: <%= link_to @job.company.name, company_path(@job.company) %><br>
 
 Tags: <% @job.tags.each do |tag| %>
 <%= link_to tag.title  %>
 <% end  %>
+<br>
 
-<% @tags.jobs.each do |job| %>
-Other Jobs Tagged with <%= job.tag.title%>: <%= job.count %>
+<% @tags.each do |tag| %>
+Other Jobs Tagged with <%= tag.title%>: <%= @jobs.total_tagged_jobs(tag)%><br>
 <% end %>
