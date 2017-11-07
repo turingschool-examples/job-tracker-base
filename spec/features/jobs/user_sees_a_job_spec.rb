@@ -23,14 +23,24 @@ describe "User sees a specific job" do
   end
 
   scenario "a user sees count of jobs for each tag for a job" do
+    company = Company.create!(name: "ESPN")
+    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+
+    visit company_job_path(company, job)
   # As a user,
   # When I visit a specific job page,
   # I also see a count of how many jobs have each specific tag listed.
   end
 
   scenario "a user sees the average salary for all jobs with a tag" do
+    company = Company.create!(name: "ESPN")
+    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+
+    visit company_job_path(company, job)
     # As a user,
     # When I visit a specific job page,
     # I also see an average salary for all jobs within each specific tag listed.
   end
 end
+
+# Ex Tags: Software - 5 (100000), Good-Location - 9 (75000)
