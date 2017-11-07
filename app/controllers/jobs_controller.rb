@@ -22,6 +22,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @tags = Tag.where(job_id: @job.id)
   end
 
   def edit
