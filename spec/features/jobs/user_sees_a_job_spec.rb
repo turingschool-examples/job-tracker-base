@@ -23,6 +23,7 @@ describe "User sees a specific job" do
 
       visit company_job_path(company, job1)
     end
+    
     scenario "a user sees the title of the tag" do
       expect(page).to have_content("Software")
       expect(page).to have_content("Far Away")

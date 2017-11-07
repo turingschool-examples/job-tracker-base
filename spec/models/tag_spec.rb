@@ -36,10 +36,7 @@ describe Tag do
     let(:job2) { company.jobs.create!(title: "Technician", level_of_interest: 50, city: "Longmont", salary: 40000) }
     let(:tag1) { job1.tags.create!(title: "Software") }
     let(:tag2) { job1.tags.create!(title: "Far Away") }
-
-    before do
-      job2.tags << tag1
-    end
+    before { job2.tags << tag1 }
 
     it '#jobs_with_tag finds the number of jobs with a specific tag' do
       expect(tag1.jobs_with_tag).to eq(2)
