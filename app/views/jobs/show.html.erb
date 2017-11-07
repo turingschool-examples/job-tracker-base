@@ -10,4 +10,9 @@ Level of Interest: <%= @job.level_of_interest %>
 City: <%= @job.city %>
 <br>
 
+<% @job.tags.each do |tag| %>
+  Tags: <%= tag.title %> - <%=tag.job_count %> (<%= number_to_currency(tag.average_salary)%>)
+    <% end %>
+<br>
+
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
