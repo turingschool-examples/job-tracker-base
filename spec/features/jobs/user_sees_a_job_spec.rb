@@ -60,7 +60,7 @@ describe "User sees a specific job" do
 
     expect(page).to have_content(80000)
     expect(page).to have_content(60000)
-    
+
     # As a user,
     # When I visit a specific job page,
     # I also see an average salary for all jobs within each specific tag listed.
