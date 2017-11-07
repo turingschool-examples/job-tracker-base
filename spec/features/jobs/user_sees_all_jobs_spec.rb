@@ -12,4 +12,5 @@ describe "User sees all jobs" do
     expect(page).to have_content("Developer")
     expect(page).to have_content("QA Analyst")
   end
+
 end
