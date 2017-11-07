@@ -4,9 +4,14 @@ feature 'User visits a jobs show page' do
   before :each do
     company = Company.create(name: "Company")
     job = Job.create(title: "Job", description: "You do things", level_of_interest: 1, company: company, city: "Place", salary: 12)
-    Tag.create(name: "Cool", job_ids: job.id)
-    Tag.create(name: "Not Cool", job: job)
-    Tag.create(name: "Hella Cool", job: job)
+    job2 = Job.create(title: "Job2", description: "You do different things", level_of_interest: 1, company: company, city: "Place", salary: 70)
+    job.tags.create(name: "Cool")
+    job.tags.create(name: "Not Cool")
+    job.tags.create(name: "Hella Cool")
+    job2.tags.create(name: "Cool")
+    job2.tags.create(name: "Not Cool")
+    job2.tags.create(name: "Hella Cool")
+
     visit "/companies/#{company.id}/jobs/#{job.id}"
   end
 
@@ -17,8 +22,10 @@ feature 'User visits a jobs show page' do
   end
 
   it 'they see a count of all jobs related to that tag' do
-    save_and_open_page
-    expect(page).to have_content("Number of jobs with this tag: 1")
+    expect(page).to have_content("Number of jobs with this tag: 2")
+  end
+
+  it 'they see the average salary for all jobs in a specific tag' do
   end
 end
 # As a user,
