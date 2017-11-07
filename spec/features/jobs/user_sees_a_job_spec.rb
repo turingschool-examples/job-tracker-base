@@ -1,14 +1,35 @@
 require 'rails_helper'
 
-describe "User sees a specific job" do
-  scenario "a user sees a job for a specific company" do
-    company = Company.create!(name: "ESPN")
-    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+feature "When a user sees a specific job" do
 
-    visit company_job_path(company, job)
+  background do
+    company = Company.create!(id: 1, name: "ESPN")
+    company.jobs.create!(id: 1,
+      title: "Developer",
+      level_of_interest: 70,
+      city: "Denver",
+      salary: 9,
+    )
+  end
+
+  scenario "they see the details of that job" do
+    visit company_job_path(1, 1)
 
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
     expect(page).to have_content("70")
+    expect(page).to have_content("$9")
   end
+
+  scenario "they see the tags for that job inc. name, job count, and mean salary" do
+    job = Job.first
+    red = job.tags.create!(name: "red")
+    blue = job.tags.create!(name: "blue")
+    blue.jobs.create!(title: "x", level_of_interest: 1, city: "x", salary: 1)
+    visit company_job_path(1, 1)
+
+    expect(page).to have_content("red - 1 (9)")
+    expect(page).to have_content("blue - 2 (5)")
+  end
+
 end
