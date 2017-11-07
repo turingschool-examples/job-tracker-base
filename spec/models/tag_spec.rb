@@ -12,5 +12,9 @@ describe Tag do
     it "#job_count" do
       expect(@tag.job_count).to eq(2)
     end
+
+    it "#average_salary" do
+      expect(@tag.average_salary).to eq(65000)
+    end
   end
 end
