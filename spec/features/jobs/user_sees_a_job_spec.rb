@@ -39,16 +39,18 @@ describe "User sees a specific job" do
     tag_1 = Tag.create!(title: "Software")
     tag_2 = Tag.create!(title: "Good-Location")
 
-    job_1.job_tags.create!(tag_id: tag_1)
-    job_1.job_tags.create!(tag_id: tag_2)
-    job_2.job_tags.create!(tag_id: tag_1)
-    job_3.job_tags.create!(tag_id: tag_1)
-    job_4.job_tags.create!(tag_id: tag_2)
-    job_4.job_tags.create!(tag_id: tag_1)
-    job_6.job_tags.create!(tag_id: tag_2)
+    job_1.job_tags.create!(tag: tag_1)
+    job_1.job_tags.create!(tag: tag_2)
+    job_2.job_tags.create!(tag: tag_1)
+    job_3.job_tags.create!(tag: tag_1)
+    job_4.job_tags.create!(tag: tag_2)
+    job_4.job_tags.create!(tag: tag_1)
+    job_6.job_tags.create!(tag: tag_2)
+
 
 
     visit company_job_path(company, job_1)
+
 
 
     expect(page).to have_content("Software - 4")
