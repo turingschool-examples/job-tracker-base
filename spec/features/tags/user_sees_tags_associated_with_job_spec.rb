@@ -65,6 +65,29 @@ describe "User visits a job show page" do
   end
 
   scenario 'and sees an average salary for all jobs within a specific tag' do
+    software_nerd.tags << post_noir
+    software_nerd.tags << artisinal
+    software_nerd.tags << chic
+    software_nerd.tags << software
+    barista.tags       << post_noir
+    barista.tags       << software
+    barista.tags       << cool_tag
+    barista.tags       << suh_dude
+    barista.tags       << cool_cool_tag
+    barista.tags       << artisinal
+    curator.tags       << cool_tag
+    curator.tags       << suh_dude
+    curator.tags       << software
+    curator.tags       << cool_cool_tag
+    curator.tags       << chic
+    curator.tags       << post_noir
+    curator.tags       << artisinal
 
+    visit company_job_path(chic_factory, software_nerd)
+
+    expect(page).to have_content('software - 3 ($283,333.33)')
+    expect(page).to have_content('post noir - 3 ($283,333.33)')
+    expect(page).to have_content('artisinal - 3 ($283,333.33)')
+    expect(page).to have_content('chic - 2 ($415,000.00)')
   end
 end
