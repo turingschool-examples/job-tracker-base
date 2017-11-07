@@ -1,5 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Tag, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "relationships" do
+
+    it "has many taggings" do
+      tag = Tag.new(name: "tech")
+      expect(tag).to respond_to(:taggings)
+    end
+
+    it "has many jobs" do
+      tag = Tag.new(name: "tech")
+      expect(tag).to respond_to(:jobs)
+    end
+    
+  end
 end
