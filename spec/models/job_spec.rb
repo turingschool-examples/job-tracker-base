@@ -29,8 +29,18 @@ describe Job do
 
   describe "relationships" do
     it "belongs to a company" do
-      job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
+      job = Job.new(title: "Software", level_of_interest: 70, city: "Denver", description: "Wahooo")
       expect(job).to respond_to(:company)
+    end
+  end
+
+  describe "class methods" do
+    it "#average salary returns the average salary for all jobs in the collection" do
+      Job.create(title: "Software", level_of_interest: 70, description: "Wahooo", city: "Denver", salary: 50000)
+      Job.create(title: "Stuff", level_of_interest: 50, description: "Boooo", city: "Atlanta", salary: 100000)
+      jobs = Job.all
+
+      expect(jobs.average_salary).to eq(75000)
     end
   end
 end
