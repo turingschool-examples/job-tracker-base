@@ -56,7 +56,7 @@ describe "User sees a specific job" do
     job1.tags.create!(title: "Far Away")
     job2.tags << tag1
 
-    visit company_job_path(company, job)
+    visit company_job_path(company, job1)
 
     expect(page).to have_content(80000)
     expect(page).to have_content(60000)
