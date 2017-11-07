@@ -10,6 +10,8 @@
 
   <%= f.label :city %>
   <%= f.text_field :city %>
+  <%= f.label :tags %>
+  <%= select_tag "tags", options_from_collection_for_select(Tag.all, 'id', 'name',@job.tags.map{ |j| j.id }), :multiple => true %>
 
   <%= f.submit %>
 <% end %>

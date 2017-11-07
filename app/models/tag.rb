@@ -1,4 +1,12 @@
 class Tag < ApplicationRecord
-  has_many :jobs
-  has_many :jobs, through: :jobs_tags
+
+  has_and_belongs_to_many :jobs
+
+  def job_count
+    jobs.count
+  end
+
+  def average_salary
+    jobs.average(:salary).round(2)
+  end
 end
