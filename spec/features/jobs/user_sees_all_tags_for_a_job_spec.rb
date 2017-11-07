@@ -34,9 +34,9 @@ describe "When a visit a specific job page" do
       visit company_job_path(company2, job2)
 
       within ".job-tags" do
-        expect(page).to have_content("Great-company - 2")
-        expect(page).to have_content("Software - 2")
-        expect(page).to have_content("Education - 1")
+        expect(page).to have_content("Great-company - 2 (65000)")
+        expect(page).to have_content("Software - 2 (65000)")
+        expect(page).to have_content("Education - 1 (70000)")
       end
     end
   end
