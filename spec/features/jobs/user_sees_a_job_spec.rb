@@ -24,9 +24,9 @@ describe "User sees a specific job" do
     expect(page).to have_content("70")
   end
 
-  scenario "a user sees a job's tags and number of jobs associated with that tag" do
-    expect(page).to have_content("Sports - 3")
-    expect(page).to have_content("Entry Level - 4")
+  scenario "a user sees a job's tags, the number of jobs associated with that tag, and average salary for that tag" do
+    expect(page).to have_content("Sports - 3 ($100,000.00)")
+    expect(page).to have_content("Entry Level - 4 ($75,000.00)")
   end
 
 end
