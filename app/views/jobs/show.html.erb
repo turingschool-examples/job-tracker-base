@@ -1,6 +1,9 @@
 Title: <%= @job.title %>
 <br>
-
+<% @job.tags.each do |tag| %>
+Tags: <%=tag.name%> - <%=tag.job_tags.count_per_job(tag.id)%> (<%=number_to_currency(tag.average_salary)%>)
+<%end%>
+<br>
 Description: <%= @job.description %>
 <br>
 
@@ -10,10 +13,5 @@ Level of Interest: <%= @job.level_of_interest %>
 City: <%= @job.city %>
 <br>
 
-<% @job.tags.each do |tag| %>
-Tag: <%=tag.name%>
-Total Jobs with tag: <%=tag.job_tags.count_per_job(tag.id) %>
-Average Salary of Jobs: <%=number_to_currency(tag.average_salary)%>
-<%end%>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>

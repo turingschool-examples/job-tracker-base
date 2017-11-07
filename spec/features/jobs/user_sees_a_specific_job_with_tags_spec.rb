@@ -1,14 +1,29 @@
 require 'rails_helper'
 
 feature "User sees a specific job" do
-  scenario "with tags associated to that job" do
+  scenario "with tag associated to that job" do
     company = Company.create!(name: "ESPN")
     job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
-    job.tags.create(name: "Tech")
+    tag = job.tags.create(name: "Tech")
 
     visit company_job_path(company, job)
 
-    expect(page).to have_content(job.tags.last.name)
+    expect(page).to have_content(tag.name)
+  end
+
+  scenario "with multipe tags asssociated to that job" do
+    company = Company.create!(name: "ESPN")
+    job = company.jobs.create!(title: "Developer",
+                                level_of_interest: 70,
+                                city: "Denver",
+                                salary: 60000)
+    tag1 = job.tags.create!(name: "Tech")
+    tag2 = job.tags.create!(name: "Good Location")
+
+    visit company_job_path(company, job)
+
+    expect(page).to have_content(tag1.name)
+    expect(page).to have_content(tag2.name)
   end
 
   scenario "with count of jobs associated to that tag" do
