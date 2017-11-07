@@ -1,21 +1,24 @@
 require 'rails_helper'
 
 feature 'User visits a jobs show page' do
-  it 'they see the name of the tags associated with that job' do
+  before :each do
     company = Company.create(name: "Company")
     job = Job.create(title: "Job", description: "You do things", level_of_interest: 1, company: company, city: "Place", salary: 12)
-    Tag.create(name: "Cool", job: job)
+    Tag.create(name: "Cool", job_ids: job.id)
     Tag.create(name: "Not Cool", job: job)
     Tag.create(name: "Hella Cool", job: job)
-
     visit "/companies/#{company.id}/jobs/#{job.id}"
+  end
 
+  it 'they see the name of the tags associated with that job' do
     expect(page).to have_content("Cool")
     expect(page).to have_content("Not Cool")
     expect(page).to have_content("Hella Cool")
   end
 
   it 'they see a count of all jobs related to that tag' do
+    save_and_open_page
+    expect(page).to have_content("Number of jobs with this tag: 1")
   end
 end
 # As a user,
