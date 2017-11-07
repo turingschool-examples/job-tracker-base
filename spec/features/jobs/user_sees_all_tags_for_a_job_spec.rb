@@ -16,8 +16,8 @@ describe "When a visit a specific job page" do
       expect(page).to have_content("70")
 
       within ".job-tags" do
-        expect(page).to have_content("Great-company")
-        expect(page).to have_content("Software")
+        expect(page).to have_content("Great-company - 1")
+        expect(page).to have_content("Software - 1")
       end
 
     end
