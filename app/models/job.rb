@@ -4,4 +4,8 @@ class Job < ApplicationRecord
 
   has_many :job_tags
   has_many :tags, through: :job_tags
+
+  def self.total_salary
+    sum(:salary)
+  end
 end
