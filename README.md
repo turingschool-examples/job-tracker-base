@@ -29,7 +29,10 @@ Students need to implement the following three user stories:
 1. As a user,
 When I visit a specific job page,
 I see the name of each of the tags associated with that job.
+tag has title : string
+=> many to many :: A job has many tags and a tag has many jobs
 
+Through JobTags ?
 
 2. As a user,
 When I visit a specific job page,
