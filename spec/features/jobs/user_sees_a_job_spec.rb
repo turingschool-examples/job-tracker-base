@@ -12,7 +12,7 @@ describe "User sees a specific job" do
     expect(page).to have_content("70")
   end
 
-  xscenario "I see the name of each of the tags associated with that job" do
+  scenario "I see the name of each of the tags associated with that job" do
     company = Company.create!(name: "ESPN")
     job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
     tag_1 = job.tags.create!(title: "Software")
@@ -26,7 +26,7 @@ describe "User sees a specific job" do
 
   end
 
-  xscenario "I also see a count of how many jobs have each specific tag listed." do
+  scenario "I also see a count of how many jobs have each specific tag listed." do
     company = Company.create!(name: "ESPN")
 
 
