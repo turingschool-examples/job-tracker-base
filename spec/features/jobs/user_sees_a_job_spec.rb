@@ -34,5 +34,6 @@ describe "User sees a specific job" do
   scenario "a user sees a specific job page" do
     expect(page).to have_content("(Average Salary for Jobs with this Tag: $80000)")
     expect(page).to have_content("(Average Salary for Jobs with this Tag: $70000)")
+    save_and_open_page
   end
 end
