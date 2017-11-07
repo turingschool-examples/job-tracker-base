@@ -29,10 +29,8 @@ describe "When a user looks at a job page" do
     expect(page).to have_content(3)
     #the average salary by tag
     save_and_open_page
-    expect(page). to have_content(75000)
-    expect(page). to have_content(87500)
-
-    
+    expect(page).to have_content(75000)
+    expect(page).to have_content(87500)
   end
 
  end
