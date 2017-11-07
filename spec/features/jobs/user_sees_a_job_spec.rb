@@ -22,6 +22,6 @@ describe "User sees a specific job" do
     expect(page).to have_content("Tags:")
     expect(page).to have_content("Sports Entertainment")
     expect(page).to have_content("1")
-    expect(page).to have_content("100000")
+    expect(page).to have_content("$100,000")
   end
 end
