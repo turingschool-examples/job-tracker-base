@@ -19,8 +19,10 @@ describe "User sees a specific job" do
     tag_2 = job.tags.create!(title: "Good-Location")
 
     visit company_job_path(company, job)
+    save_and_open_page
 
     expect(page).to have_content("Software")
     expect(page).to have_content("Good-Location")
+
   end
 end
