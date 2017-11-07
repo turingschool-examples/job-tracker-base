@@ -24,33 +24,29 @@ describe Tag do
   end
 
   describe "relationships" do
-    it "has many jobs" do
+    it "has and belongs to many jobs" do
       tag = Tag.new(title: "Software")
       expect(tag).to respond_to(:jobs)
     end
   end
 
   describe "instance methods" do
-    it '#jobs_with_tag finds the number of jobs with a specific tag' do
-      company = Company.create!(name: "ESPN")
-      job1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
-      job2 = company.jobs.create!(title: "Technician", level_of_interest: 50, city: "Longmont")
-      tag1 = job1.tags.create!(title: "Software")
-      tag2 = job1.tags.create!(title: "Far Away")
-      job2.tags << tag1
+    let(:company) { Company.create!(name: "ESPN") }
+    let(:job1) { company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 80000) }
+    let(:job2) { company.jobs.create!(title: "Technician", level_of_interest: 50, city: "Longmont", salary: 40000) }
+    let(:tag1) { job1.tags.create!(title: "Software") }
+    let(:tag2) { job1.tags.create!(title: "Far Away") }
 
+    before do
+      job2.tags << tag1
+    end
+
+    it '#jobs_with_tag finds the number of jobs with a specific tag' do
       expect(tag1.jobs_with_tag).to eq(2)
       expect(tag2.jobs_with_tag).to eq(1)
     end
 
     it '#average_salary calculates the average salary of all jobs with a specific tag' do
-      company = Company.create!(name: "ESPN")
-      job1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 80000)
-      job2 = company.jobs.create!(title: "Technician", level_of_interest: 50, city: "Longmont", salary: 40000)
-      tag1 = job1.tags.create!(title: "Software")
-      tag2 = job1.tags.create!(title: "Far Away")
-      job2.tags << tag1
-
       expect(tag1.average_salary).to eq(60000)
       expect(tag2.average_salary).to eq(80000)
     end
