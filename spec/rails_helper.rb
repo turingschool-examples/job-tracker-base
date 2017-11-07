@@ -5,6 +5,7 @@ require 'spec_helper'
 require 'rspec/rails'
 
 ActiveRecord::Migration.maintain_test_schema!
+DatabaseCleaner.strategy = :truncation
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
