@@ -1,0 +1,9 @@
+<%= form_for [@job,@tag] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :jobs %>
+  <%= select_tag "jobs", options_from_collection_for_select(Job.all, 'id', 'title',@tag.jobs.map{ |j| j.id }), :multiple => true %>
+
+  <%= f.submit %>
+<% end %>
