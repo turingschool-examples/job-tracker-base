@@ -44,6 +44,23 @@ describe "User visits a job show page" do
   end
 
   scenario 'and sees a count of how many jobs have each specific tag' do
+    software_nerd.tags << post_noir
+    software_nerd.tags << artisinal
+    software_nerd.tags << chic
+    software_nerd.tags << software
+    b2bsales.tags      << post_noir
+    b2bsales.tags      << software
 
+    visit company_job_path(tech_town, software_nerd)
+
+    expect(page).to have_content("post noir")
+    expect(page).to have_content("artisinal")
+    expect(page).to have_content("chic")
+    expect(page).to have_content("software")
+
+    expect(page).to have_content('software - 2')
+    expect(page).to have_content('post noir - 2')
+    expect(page).to have_content('artisinal - 1')
+    expect(page).to have_content('chic - 1')
   end
 end
