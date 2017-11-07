@@ -24,10 +24,6 @@ describe "User sees a specific job" do
 
     expect(page).to have_content("Software")
     expect(page).to have_content("Far Away")
-
-#     As a user,
-#     When I visit a specific job page,
-#     I see the name of each of the tags associated with that job.
   end
 
   scenario "a user sees count of jobs for each tag for a job" do
@@ -42,10 +38,6 @@ describe "User sees a specific job" do
 
     expect(page).to have_content(2)
     expect(page).to have_content(1)
-
-  # As a user,
-  # When I visit a specific job page,
-  # I also see a count of how many jobs have each specific tag listed.
   end
 
   scenario "a user sees the average salary for all jobs with a tag" do
@@ -60,11 +52,5 @@ describe "User sees a specific job" do
 
     expect(page).to have_content(80000)
     expect(page).to have_content(60000)
-
-    # As a user,
-    # When I visit a specific job page,
-    # I also see an average salary for all jobs within each specific tag listed.
   end
 end
-
-# Ex Tags: Software - 5 (100000), Good-Location - 9 (75000)
