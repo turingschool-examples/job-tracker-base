@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107163047) do
+ActiveRecord::Schema.define(version: 20171107164115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,13 +19,6 @@ ActiveRecord::Schema.define(version: 20171107163047) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "companies_tags", force: :cascade do |t|
-    t.integer "company_id"
-    t.integer "tag_id"
-    t.index ["company_id"], name: "index_companies_tags_on_company_id", using: :btree
-    t.index ["tag_id"], name: "index_companies_tags_on_tag_id", using: :btree
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -40,6 +33,13 @@ ActiveRecord::Schema.define(version: 20171107163047) do
     t.index ["company_id"], name: "index_jobs_on_company_id", using: :btree
   end
 
+  create_table "jobs_tags", force: :cascade do |t|
+    t.integer "job_id"
+    t.integer "tag_id"
+    t.index ["job_id"], name: "index_jobs_tags_on_job_id", using: :btree
+    t.index ["tag_id"], name: "index_jobs_tags_on_tag_id", using: :btree
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20171107163047) do
     t.string "password"
   end
 
-  add_foreign_key "companies_tags", "companies"
-  add_foreign_key "companies_tags", "tags"
   add_foreign_key "jobs", "companies"
+  add_foreign_key "jobs_tags", "jobs"
+  add_foreign_key "jobs_tags", "tags"
 end
