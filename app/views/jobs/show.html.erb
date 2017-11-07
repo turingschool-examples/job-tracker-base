@@ -14,6 +14,8 @@ Company: <%= link_to @job.company.name, company_path(@job.company) %><br>
 
 Tags: <% @job.tags.each do |tag| %>
 <%= link_to tag.title  %>
-Other Jobs Tagged with <%= tag.title %>: <%=tag.jobs.count%>
-<% end  %>
+Other Jobs Tagged with <%= tag.title %>: <%=tag.total_tagged_jobs%>
+
+<% # byebug %>
 <br>
+<% end  %>
