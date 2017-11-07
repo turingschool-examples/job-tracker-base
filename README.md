@@ -42,7 +42,6 @@ I also see a count of how many jobs have each specific tag listed.
 When I visit a specific job page,
 I also see an average salary for all jobs within each specific tag listed.
 
-
 #### Example:
 
 Job : Developer
