@@ -13,18 +13,18 @@ describe "User visits a job show page" do
   let!(:chic_factory)  { Company.create!(name: "chic factory")}
   let!(:tech_town)     { Company.create!(name: "tech disruption, so hot right now")}
 
-  let!(:software_nerd) { tech_town.jobs.create!(title: 'Rails ninja!',  level_of_interest: 10, city: 'NYC', salary: 1000000 )}
-  let!(:b2bsales)      { tech_town.jobs.create!(title: 'b2b sales!',    level_of_interest: 1,  city: 'NYC', salary: 1000000 )}
+  let!(:software_nerd) { tech_town.jobs.create!(title: 'Rails ninja!',  level_of_interest: 10, city: 'NYC', salary: 800000 )}
+  let!(:b2bsales)      { tech_town.jobs.create!(title: 'b2b sales!',    level_of_interest: 1,  city: 'NYC', salary: 700000 )}
   let!(:react_dev)     { tech_town.jobs.create!(title: 'Lord of React', level_of_interest: 95, city: 'NYC', salary: 1000000 )}
-  let!(:devops)        { tech_town.jobs.create!(title: 'dev ops!',      level_of_interest: 8,  city: 'NYC', salary: 1000000 )}
+  let!(:devops)        { tech_town.jobs.create!(title: 'dev ops!',      level_of_interest: 8,  city: 'NYC', salary: 1100000 )}
 
-  let!(:barista)       { chic_factory.jobs.create(title: "barista", level_of_interest: 20, city: 'LA')}
-  let!(:artisan)       { chic_factory.jobs.create(title: "artisan", level_of_interest: 20, city: 'LA')}
-  let!(:cooler_than)   { chic_factory.jobs.create(title: "2chich2furious", level_of_interest: 20, city: 'LA')}
+  let!(:barista)       { chic_factory.jobs.create(title: "barista",        level_of_interest: 20, city: 'LA', salary: 20000)}
+  let!(:artisan)       { chic_factory.jobs.create(title: "artisan",        level_of_interest: 20, city: 'LA', salary: 30000)}
+  let!(:cooler_than)   { chic_factory.jobs.create(title: "2chich2furious", level_of_interest: 20, city: 'LA', salary: 80000)}
 
-  let!(:horticulture) { mj_emporium.jobs.create!(title: "horticulturalist", level_of_interest: 70, city: "Denver")}
-  let!(:curator)      { mj_emporium.jobs.create!(title: "curator", level_of_interest: 70, city: "Denver")}
-  let!(:SM_influence) { mj_emporium.jobs.create!(title: "social media influencer", level_of_interest: 20, city: "Denver")}
+  let!(:horticulture) { mj_emporium.jobs.create!(title: "horticulturalist", level_of_interest: 70, city: "Denver", salary: 20000)}
+  let!(:curator)      { mj_emporium.jobs.create!(title: "curator", level_of_interest: 70, city: "Denver", salary: 30000)}
+  let!(:SM_influence) { mj_emporium.jobs.create!(title: "media influencer", level_of_interest: 20, city: "Denver", salary: 40000)}
 
   scenario "and sees tags associated with specific job" do
     horticulture.tags << cool_tag
@@ -62,5 +62,9 @@ describe "User visits a job show page" do
     expect(page).to have_content('post noir - 2')
     expect(page).to have_content('artisinal - 1')
     expect(page).to have_content('chic - 1')
+  end
+
+  scenario 'and sees an average salary for all jobs within a specific tag' do
+
   end
 end
