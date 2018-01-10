@@ -46,7 +46,6 @@ describe "User sees a specific job with associated tags" do
     visit company_job_path(company, job1)
 
     expect(page).not_to have_content("70000")
-    save_and_open_page
     expect(page).to have_content("sportsball")
   end
 end
