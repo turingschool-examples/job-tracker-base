@@ -35,9 +35,9 @@ describe "User sees a specific job with associated tags" do
 
   scenario "a user sees an average_salary for each tag" do
     company = Company.create!(name: "ESPN")
-    job1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
-    job2 = company.jobs.create!(title: "HR", level_of_interest: 50, city: "SF")
-    job3 = company.jobs.create!(title: "CTO", level_of_interest: 50, city: "SF")
+    job1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", salary: 60000)
+    job2 = company.jobs.create!(title: "HR", level_of_interest: 50, city: "SF", salary: 70000)
+    job3 = company.jobs.create!(title: "CTO", level_of_interest: 50, city: "SF", salary: 80000)
     tag1 = Tag.create!(name: "sportsball")
     JobTag.create!(job: job1, tag: tag1)
     JobTag.create!(job: job2, tag: tag1)
@@ -45,7 +45,7 @@ describe "User sees a specific job with associated tags" do
 
     visit company_job_path(company, job1)
 
-    expect(page).not_to have_content("70000")
+    expect(page).to have_content("70000")
     expect(page).to have_content("sportsball")
   end
 end
