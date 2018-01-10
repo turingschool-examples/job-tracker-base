@@ -16,4 +16,5 @@ Tags: <% @job.tags.each do |tag| %>
 <%= tag.name %>
 Count of jobs for <%= tag.name %>:
 <%= tag.count_jobs %>
+<%= tag.average_salary %>
 <% end %>
